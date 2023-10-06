@@ -1,20 +1,24 @@
-name: deploy gh-pages
+name: Deploy pages
+
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - main
+
 jobs:
-  build:
-    name: Build and deploy gh-pages
-    env:
-      MY_SECRET: ${{secrets.commit_secret}}
-      USER_NAME: joshua.lu
-      USER_EMAIL: hmlu36@gmail.com
-      PUBLISH_DIR: ./dist
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - uses: actions/checkout@v3
 
