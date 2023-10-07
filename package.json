@@ -9,6 +9,7 @@
   "dependencies": {
     "@slidev/cli": "^0.43.6",
     "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest"
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-dracula": "^0.2.0"
   }
 }
