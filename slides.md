@@ -7,13 +7,14 @@ background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
-highlighter: shiki
 # some information about the slides, markdown enabled
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  小組敬拜使用
+fonts:
+  sans: 'Noto Sans TC'
+  # default
+  weights: '400'
+layout: none
 ---
 
  # 2023/10/06 
