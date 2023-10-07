@@ -1,20 +1,19 @@
 h1 {
   font-size: 3.6em !important;
   margin-top: 40px;
+  letter-spacing: 8px;
   text-align: center;
-  /* font-family: '芫荽', sans-serif; */
+  font-family: 'CWTEX-K', sans-serif; 
 }
 
 /* 黑底白字 */
-/*
+
 .slidev-layout {
   background-color: #000; 
   color: #fff;
 }
-*/
-/*
+
 @font-face {
-  font-family: '芫荽'; 
-  src: url('./fonts/Iansui-Regular.ttf') format('truetype');
+  font-family: 'CWTEX-K'; 
+  src: url('./fonts/CWTEX-K.ttf') format('truetype');
 }
-*/

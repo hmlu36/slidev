@@ -11,7 +11,7 @@ class: 'text-center'
 info: |
   小組敬拜使用
 fonts:
-  sans: 'Noto Sans TC'
+  sans: 'CWTEX-K'
   # default
   weights: '400'
 layout: none
@@ -21,5 +21,5 @@ layout: none
  # 小組敬拜
 
 ---
-src: ./20231006.md
+src: ./pages/20231006.md
 ---
