@@ -2,6 +2,7 @@
   "name": "slidev",
   "private": true,
   "scripts": {
+    "predev": "fonts\\toolkit\\batch_commands.bat",
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"

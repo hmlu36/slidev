@@ -1,7 +1,7 @@
 @echo off
 
-python findUniqueChar.py
+python fonts/toolkit/findUniqueChar.py
 
-pyftsubset CWTEX-K.ttf --text-file=unique_chars.txt --no-hinting --output-file=CWTEX-K2.ttf
+pyftsubset fonts/toolkit/CWTEX-K.ttf --text-file=fonts/toolkit/unique_chars.txt --no-hinting --output-file=fonts/toolkit/CWTEX-K2.ttf
 
-python converTtf2Woff.py
+python fonts/toolkit/converTtf2Woff.py
