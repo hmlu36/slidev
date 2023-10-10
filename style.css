@@ -7,11 +7,12 @@ h1 {
 }
 
 /* 黑底白字 */
+/*
 .slidev-layout {
   background-color: #000; 
   color: #fff;
 }
-
+*/
 @font-face {
   font-family: 'CWTEX-K'; 
   src: url('./fonts/CWTEX-K2.woff2') format('truetype');
