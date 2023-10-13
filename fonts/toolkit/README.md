@@ -1,6 +1,6 @@
 方便小組投影片使用，採用Slidev(vue套件)
 需要安裝python，以及Python工具 fonttools、ttf to woff
-執行npm run的時候，會先做predev，執行batch_commands.bat的指令
+執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令
 將轉換後的字型檔，存成CWTEX-K.ttf
 
 ---
