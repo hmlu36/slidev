@@ -1,4 +1,4 @@
-* 方便小組投影片使用，採用Slidev(vue套件)<
+* 方便小組投影片使用，採用Slidev(vue套件)
 * 需要安裝python的套件，對字做處理，儘可能壓縮字體檔
 * 將轉換後的字型檔，存成CWTEX-K.ttf
 * 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令
