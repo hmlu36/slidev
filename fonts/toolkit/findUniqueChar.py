@@ -13,7 +13,7 @@ for md_file in md_files:
         md_content = file.read()
         # 遍歷MD檔案的內容，將繁體中文字符添加到集合中
         for char in md_content:
-            if '\u4e00' <= char <= '\u9fff':
+            if '\u4e00' <= char <= '\u9fff' or char in '0123456789/':
                 unique_chars.add(char)
 
 # 嘗試讀取現有的unique_chars.txt檔案，如果不存在，則創建一個新的檔案
