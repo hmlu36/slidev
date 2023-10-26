@@ -21,6 +21,11 @@ try:
     with open('fonts/toolkit/unique_chars.txt', 'r', encoding='utf-8') as existing_file:
         existing_chars = set(existing_file.read())
     unique_chars.update(existing_chars)
+    
+    
+    with open('slides.md', 'r', encoding='utf-8') as existing_file:
+        existing_chars = set(existing_file.read())
+    unique_chars.update(existing_chars)
 except FileNotFoundError:
     pass
 
