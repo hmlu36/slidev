@@ -37,6 +37,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "./dist" | while read line; do
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
