@@ -2,7 +2,13 @@ import os
 import glob
 
 # 搜尋`pages`目錄下的所有MD檔案
-md_files = glob.glob('pages/*.md')
+pages_mds  = glob.glob('pages/*.md')
+
+lyrics_mds = glob.glob('pages/lyrics/*.md')  
+
+# 合并两个列表
+md_files = pages_mds + lyrics_mds
+
 
 # 創建一個集合來存儲不重複的中文字
 unique_chars = set()
