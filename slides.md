@@ -21,5 +21,5 @@ layout: none
  # 小組敬拜
 
 ---
-src: ./pages/20231117.md
+src: ./pages/20231027.md
 ---
