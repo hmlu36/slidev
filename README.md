@@ -1,3 +1,5 @@
+
+---
 * 方便小組投影片使用，採用Slidev(vue套件)
 * 需要安裝python的套件，對字做處理，儘可能壓縮字體檔
 * 將轉換後的字型檔，存成CWTEX-K.ttf
@@ -22,15 +24,3 @@ pip install fonttools
 # ttf to woff
 pip install --user --upgrade fonttools[woff] 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
