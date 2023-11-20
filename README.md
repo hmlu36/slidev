@@ -1,5 +1,16 @@
+- **使用說明**  
+
+主頁從 main.md進入
+歌詞放在 pages/lyrics
+當日投影片，會以yyyyMMdd.md命名
+裡面會引用用到的歌詞
+引用方式，ex: 
+> ---
+> src: ./lyrics/以馬內利.md
+> ---
 
 ---
+
 * 方便小組投影片使用，採用Slidev(vue套件)
 * 需要安裝python的套件，對字做處理，儘可能壓縮字體檔
 * 將轉換後的字型檔，存成CWTEX-K.ttf
