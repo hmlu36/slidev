@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "predev": "fonts\\toolkit\\batch_commands.bat",
-    "build": "slidev build",
+    "build": "slidev build --exclude README.md",
     "dev": "slidev --open",
     "export": "slidev export"
   },
