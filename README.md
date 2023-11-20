@@ -10,15 +10,15 @@
 src: ./lyrics/以馬內利.md
 ---
 ```
-
 ---
 
-* 方便小組投影片使用，採用Slidev(vue套件)
-* 需要安裝python的套件，對字做處理，儘可能壓縮字體檔
-* 將轉換後的字型檔，存成CWTEX-K.ttf
-* 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令
+- **投影片小程式緣起**  
+
+* 希望可以快速生成投影片，方便小組敬拜使用，採用Slidev(vue套件)
+* 希望可以精簡字體大小，採用python套件，儘可能壓縮字體檔
 * 如果不想做字型處理，在package.json中，拿掉scripts中的predev
-* fonts資料夾底下，字型檔改用CWTEX-K.ttf
+* (fonts資料夾底下，字型檔改用CWTEX-K.ttf)
+* 將轉換後的字型檔，存成woff2格式(大小約少一半)
 
 ---
 
@@ -37,3 +37,5 @@ pip install fonttools
 # ttf to woff
 pip install --user --upgrade fonttools[woff] 
 ```
+
+* 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令
