@@ -17,7 +17,7 @@ src: ./lyrics/以馬內利.md
 1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔
 2. 採用Slidev(vue套件)，讀取markdown檔，產生投影片
 3. 為了精簡字體大小，採用python套件，儘可能壓縮字體檔
-3. 如果不想做字型處理，在package.json中，拿掉scripts中的predev
+3. 如果不想做字型處理，在package.json中，拿掉scripts中的predev  
    (fonts資料夾底下，字型檔改用CWTEX-K.ttf)
 4. 將轉換後的字型檔，存成woff2格式(大小約少一半)
 
