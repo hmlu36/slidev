@@ -34,7 +34,7 @@ jobs:
 
       - name: Build
         run: |
-            echo -e "y\n" | slidev build --base slidev --exclude README.md
+            echo -e "y\n" | slidev build --base slidev entry slide.md
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
