@@ -2,12 +2,15 @@
 
 主頁從 main.md進入
 歌詞放在 pages/lyrics
-當日投影片，會以yyyyMMdd.md命名
+當週投影片會放在pages底下，會以yyyyMMdd.md命名
 裡面會引用用到的歌詞
 引用方式，ex: 
-> ---
-> src: ./lyrics/以馬內利.md
-> ---
+
+'''
+---
+src: ./lyrics/以馬內利.md
+---
+```
 
 ---
 
