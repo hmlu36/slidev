@@ -1,11 +1,10 @@
 - **使用說明**  
 
-主頁從 main.md進入
-歌詞放在 pages/lyrics
-當週投影片會放在pages底下，會以yyyyMMdd.md命名
-裡面會引用用到的歌詞
-引用方式，ex: 
-
+主頁從 main.md進入  
+歌詞放在 pages/lyrics  
+當週投影片會放在pages底下，會以yyyyMMdd.md命名  
+裡面會引用用到的歌詞  
+引用方式，ex:   
 ```yaml
 ---
 src: ./lyrics/以馬內利.md
