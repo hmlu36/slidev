@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "predev": "fonts\\toolkit\\batch_commands.bat",
-    "build": "slidev build slides.md",
-    "dev": "slidev --open",
+    "build": "slidev build main.md",
+    "dev": "slidev main.md --open",
     "export": "slidev export"
   },
   "dependencies": {
