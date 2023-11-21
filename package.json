@@ -2,8 +2,8 @@
   "name": "slidev",
   "private": true,
   "scripts": {
-    "predev": "fonts\\toolkit\\batch_commands.bat",
-    "build": "slidev build main.md",
+    //"predev": "fonts\\toolkit\\batch_commands.bat",
+    "build": "slidev build [main.md]",
     "dev": "slidev main.md --open",
     "export": "slidev export"
   },
