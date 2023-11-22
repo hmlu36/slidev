@@ -13,10 +13,20 @@ src: ./lyrics/以馬內利.md
 ```
 
 目錄結構如下:   
-/main.md  
-/pages/20211117.md  
-/pages/lyrics/以馬內利.md  
-
+. (repository root)  
+├── README.md  
+├── package-lock.json  
+├── package.json
+├── main.md
+└── pages
+    ├── 20231006.md
+    ├── 20231013.md
+    ├── ...
+    └── lyrics
+         ├── 以馬內利.md
+         ├── 在呼召我之處.md
+         └── ...
+         
 ---
 
 - **投影片小程式緣起**  
