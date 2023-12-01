@@ -6,7 +6,7 @@ pages_mds  = glob.glob('pages/*.md')
 
 lyrics_mds = glob.glob('pages/lyrics/*.md')  
 
-# 合并两个列表
+# 合併檔案路徑
 md_files = pages_mds + lyrics_mds
 
 
