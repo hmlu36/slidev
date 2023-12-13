@@ -15,6 +15,7 @@ fonts:
   # default
   weights: '400'
 layout: none
+lang: 'zh-TW'
 ---
 
  # 2023/12/01
