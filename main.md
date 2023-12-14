@@ -15,7 +15,11 @@ fonts:
   # default
   weights: '400'
 layout: none
-lang: 'zh-TW'
+
+# HTML tag attributes
+htmlAttrs:
+  dir: 'ltr'
+  lang: zh-TW
 ---
 
  # 2023/12/15
