@@ -20,6 +20,10 @@ layout: none
 htmlAttrs:
   dir: 'ltr'
   lang: zh-TW
+
+  
+# favicon, can be a local file path or URL
+favicon: './images/favicon.png'
 ---
 
  # 2023/12/15
