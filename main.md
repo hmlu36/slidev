@@ -18,9 +18,9 @@ layout: none
 lang: 'zh-TW'
 ---
 
- # 2023/12/01
+ # 2023/12/15
  # 小組敬拜
 
 ---
-src: ./pages/20231201.md
+src: ./pages/20231215.md
 ---
