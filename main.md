@@ -1,6 +1,10 @@
 ---
 # try also 'default' to start simple
 theme: default
+# title of your slide, will auto infer from the first header if not specified
+title: 'New小組敬拜'
+# titleTemplate for the webpage, `%s` will be replaced by the page's title
+titleTemplate: '%s'
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
@@ -20,7 +24,6 @@ layout: none
 htmlAttrs:
   dir: 'ltr'
   lang: zh-TW
-
   
 # favicon, can be a local file path or URL
 favicon: './images/favicon.png'
