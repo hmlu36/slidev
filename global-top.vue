@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-area absolute bottom-0 left-0 right-0 p-2" @click="$slidev.nav.next"></div>
+  <div class="scroll-area absolute bottom-0 left-0 right-0 p-2"></div>
 </template>
 
 <script setup lang="ts">
@@ -14,9 +14,9 @@ const scrollPage = (e: { deltaY: number }) => {
 }
 
 const handleMouseClick = (e: MouseEvent) => {
+  e.preventDefault(); // Prevent default behavior
   if (e.button === 0) { // Left mouse button
     $slidev.nav.next();
-    e.preventDefault(); // Prevent default behavior
   } else if (e.button === 2) { // Right mouse button
     $slidev.nav.prev();
   }
