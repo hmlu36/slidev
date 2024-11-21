@@ -22,14 +22,26 @@ const handleMouseClick = (e: MouseEvent) => {
   }
 }
 
+
+const handleMouseMove = (e: MouseEvent) => {
+  const target = e.target as HTMLElement;
+  if (target.closest('a')) {
+    document.body.style.cursor = 'pointer';
+  } else {
+    document.body.style.cursor = 'default';
+  }
+}
+
 onMounted(() => {
   window.addEventListener('wheel', scrollPage);
   window.addEventListener('mousedown', handleMouseClick);
+  window.addEventListener('mousemove', handleMouseMove);
 });
 
 onUnmounted(() => {
   window.removeEventListener('wheel', scrollPage);
   window.removeEventListener('mousedown', handleMouseClick);
+  window.removeEventListener('mousemove', handleMouseMove);
 });
 </script>
 
@@ -37,5 +49,10 @@ onUnmounted(() => {
 .scroll-area {
   width: 100%;
   height: 100vh;
+}
+
+
+.a {
+  cursor: pointer; /* Change cursor to pointer when hovering over the link */
 }
 </style>
