@@ -8,7 +8,7 @@
 
 ```yaml
 ---
-src: ./lyrics/以馬內利.md
+src: ../lyrics/以馬內利.md
 ---
 ```
 
