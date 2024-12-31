@@ -36,7 +36,7 @@ jobs:
         
       - name: Build
         run: |
-            echo -e "y\n" | slidev build main.md --base /slidev/
+            echo -e "y\n" | build main.md --base /${{github.event.repository.name}}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
