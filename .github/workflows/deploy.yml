@@ -1,22 +1,23 @@
 name: Deploy pages
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
   push:
-    branches: [main]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -25,30 +26,25 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
-
       - name: Install dependencies
-        run: nci
+        run: npm install
+
+      - name: Install slidev
+        run:  npm i -g @slidev/cli@0.50.0
 
       - name: Build
-        run: nr build --base /slidev/
+        run: |
+            echo -e "y\n" | slidev build main.md --base /${{github.event.repository.name}}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
+          # Upload dist repository
           path: dist
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
