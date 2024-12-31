@@ -31,12 +31,8 @@ jobs:
       - name: Install dependencies
         run: nci
 
-      #- name: Build
-      #  run: nr build --base /${{github.event.repository.name}}/
-        
       - name: Build
-        run: |
-            echo -e "y\n" | build main.md --base /${{github.event.repository.name}}/
+        run: nr build --base /${{github.event.repository.name}}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
