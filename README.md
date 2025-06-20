@@ -1,7 +1,17 @@
-- **使用說明**  
 
-主頁從 main.md進入  
-歌詞放在 pages/lyrics  
+## **投影片小程式緣起**  
+
+1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔
+2. 採用Slidev(vue套件)，讀取markdown檔，產生投影片
+3. 為了精簡字體大小，採用python套件，儘可能壓縮字體檔
+3. 如果不想做字型處理，在執行npm run dev時加入參數 --no-predev
+4. 將轉換後的字型檔，存成woff2格式(大小約少一半)
+
+---
+
+##  **使用說明**  
+
+主頁從 main.md進入，歌詞放在 pages/lyrics  
 當週投影片會放在pages底下，會以yyyyMMdd.md命名  
 裡面會引用用到的歌詞  
 引用方式，ex:   
@@ -29,18 +39,9 @@ src: ../lyrics/以馬內利.md
 
 ---
 
-- **投影片小程式緣起**  
-
-1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔
-2. 採用Slidev(vue套件)，讀取markdown檔，產生投影片
-3. 為了精簡字體大小，採用python套件，儘可能壓縮字體檔
-3. 如果不想做字型處理，在執行npm run dev時加入參數 --no-predev
-4. 將轉換後的字型檔，存成woff2格式(大小約少一半)
-
----
+## **字體處理**
 
 - **為了讓字體壓縮到最小，python處理動作如下**  
-.\fonts\toolkit\batch_commands.bat
 1. 先讀取pages底下的投影片檔案，抓出不重複中文字寫到fonts/toolkit底下unique-chars.txt
    (fonts/toolkit/findUniqueChar.py)
 2. 會根據unique-chars.txt比對字型檔(CWTEX-K.ttf)中的字，篩選出有的字產生CWTEX-K2.ttf
@@ -56,4 +57,15 @@ pip install fonttools
 pip install --user --upgrade fonttools[woff] 
 ```
 
-* 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令
+* 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令，再產生投影片
+
+```
+.\fonts\toolkit\batch_commands.bat
+```
+
+---
+
+## **背景圖**
+背景圖放在public/images底下  
+可以透過image2webp.py轉成webp格式，減少檔案大小
+
