@@ -1,5 +1,5 @@
 
-## **投影片小程式緣起**  
+- **投影片小程式緣起**  
 
 1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔
 2. 採用Slidev(vue套件)，讀取markdown檔，產生投影片
@@ -9,7 +9,7 @@
 
 ---
 
-##  **使用說明**  
+-  **使用說明**  
 
 主頁從 main.md進入，歌詞放在 pages/lyrics  
 當週投影片會放在pages底下，會以yyyyMMdd.md命名  
@@ -39,7 +39,7 @@ src: ../lyrics/以馬內利.md
 
 ---
 
-## **字體處理**
+- **字體處理**
 
 - **為了讓字體壓縮到最小，python處理動作如下**  
 1. 先讀取pages底下的投影片檔案，抓出不重複中文字寫到fonts/toolkit底下unique-chars.txt
@@ -65,7 +65,7 @@ pip install --user --upgrade fonttools[woff]
 
 ---
 
-## **背景圖**
+- **背景圖**
 背景圖放在public/images底下  
 可以透過image2webp.py轉成webp格式，減少檔案大小
 
