@@ -13,4 +13,4 @@ def compress_and_convert_image(source_filename, target_filename, quality=80):
         img.save(target_path, 'webp', quality=quality)
 
 # Example: Compress and convert test.jpg to test.webp
-compress_and_convert_image('rachel-coyne-U7HLzMO4SIY-unsplash.jpg', 'rachel-coyne-U7HLzMO4SIY.webp', quality=30)
+compress_and_convert_image('gustavo-zambelli-nY0NVEv0IFs-unsplash.jpg', 'gustavo-zambelli-nY0NVEv0IFs-unsplash.webp', quality=20)
