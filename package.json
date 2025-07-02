@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "predev": "node -e \"process.platform==='win32'?require('child_process').execSync('fonts\\\\toolkit\\\\batch_commands.bat',{stdio:'inherit'}):require('child_process').execSync('sh fonts/toolkit/batch_commands.sh',{stdio:'inherit'})\"",
-    "build": "slidev build [main.md]",
+    "build": "slidev build main.md",
     "dev": "slidev main.md --open",
-    "export": "slidev export"
+    "export": "slidev export main.md"
   },
   "dependencies": {
     "@slidev/cli": "^52.0.0",
