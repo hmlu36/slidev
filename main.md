@@ -5,7 +5,7 @@ title: 'New小組敬拜'
 titleTemplate: '%s'
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: '/images/caleb-white-PLfzwAmflos.webp'
+# background: '/images/caleb-white-PLfzwAmflos.webp'
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
