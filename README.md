@@ -69,3 +69,8 @@ pip install --user --upgrade fonttools[woff]
 背景圖放在public/images底下  
 可以透過image2webp.py轉成webp格式，減少檔案大小
 
+需安裝
+```
+pip install Pillow
+```
+
