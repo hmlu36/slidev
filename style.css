@@ -13,7 +13,9 @@ h1 {
   color: #fff;
 }
 */
+
 @font-face {
   font-family: 'CWTEX-K'; 
-  src: url('./fonts/CWTEX-K2.woff2') format('truetype');
+  src: url('./fonts/CWTEX-K2.woff2') format('woff2'),
+       url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
 }
