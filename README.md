@@ -29,8 +29,9 @@ src: ../lyrics/以馬內利.md
 ├── package.json  
 ├── main.md  
 └── pages  
-    ├── 20231006.md  
-    ├── 20231013.md  
+    ├── 年份, ex: 2023  
+    ├────20231006.md  
+    ├────20231013.md  
     ├── ...  
     └── lyrics  
          ├── 以馬內利.md  
@@ -39,8 +40,11 @@ src: ../lyrics/以馬內利.md
 
 ---
 
-- **字體處理**
+- **字體處理**  
 
+改成從Github執行Python取出字體
+
+<!-- 
 - **為了讓字體壓縮到最小，python處理動作如下**  
 1. 先讀取pages底下的投影片檔案，抓出不重複中文字寫到fonts/toolkit底下unique-chars.txt
    (fonts/toolkit/findUniqueChar.py)
@@ -58,6 +62,7 @@ pip install --user --upgrade fonttools[woff]
 ```
 
 * 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令，再產生投影片
+-->
 
 ```
 .\fonts\toolkit\batch_commands.bat
