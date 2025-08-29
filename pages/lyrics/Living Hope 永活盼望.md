@@ -1,5 +1,5 @@
 
-###  Living Hope
+###  Living Hope 永活盼望
 
 #### [Verse 1]
 
