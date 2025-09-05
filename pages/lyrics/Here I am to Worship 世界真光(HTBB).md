@@ -1,4 +1,4 @@
-### Here I am to Worship 我在這裡敬拜
+### Here I am to Worship 世界真光
 #### [Verse 1]
 # 世界真光   祢照亮黑暗世界
 # 開我雙眼能看見
