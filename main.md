@@ -29,9 +29,9 @@ htmlAttrs:
 favicon: '/images/favicon.png'
 ---
 
- # 2025/09/12
+ # 2025/09/19
  # New小組敬拜
 
 ---
-src: ./pages/2025/20250912.md
+src: ./pages/2025/20250919.md
 ---
