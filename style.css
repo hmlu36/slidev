@@ -21,3 +21,8 @@ h1 {
 
   font-display: swap;
 }
+
+.taigi-lyrics h4,
+.taigi-lyrics h3 {
+  font-family: 'LessonOne-Medium';
+}
