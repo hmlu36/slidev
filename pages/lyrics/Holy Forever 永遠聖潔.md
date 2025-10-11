@@ -1,17 +1,27 @@
 
 ### Holy Forever 永遠聖潔
+
+<div id="holy-forever-verse1">
+
 #### [Verse 1] 
 # 世世代代俯伏 全心全意敬拜
 # 齊聲宣揚稱頌神羔羊
 # 眾聖徒眾兒女 萬族萬民萬邦
 # 齊聲宣揚稱頌神羔羊
 
+</div>
+
+<JumpToById target="holy-forever-pre-chorus1">→ Pre Chorus 1</JumpToById>
 
 ---
+
+<div id="holy-forever-verse2">
 
 #### [Verse 2-1]
 # 我已被祢赦免 我已被祢贖回
 # 永遠宣揚稱頌 神羔羊
+
+</div>
 
 ---
 
@@ -22,10 +32,14 @@
 
 ---
 
+<div id="holy-forever-pre-chorus1">
+
 #### [Pre Chorus 1]
 # 祢名 高過穹蒼
 # 祢名 何等偉大
 # 祢名 超乎萬名之上
+
+</div>
 
 ---
 
@@ -35,7 +49,6 @@
 # 祢名 超乎萬名之上
 
 ---
-
 
 #### [Chorus 1] 
 # 眾天使呼喊 聖潔
@@ -50,5 +63,6 @@
 # 全地的君王 聖潔
 # 祢永不改變 聖潔
 # 聖潔到永遠
-
-
+ 
+<JumpToById target="holy-forever-verse1">→ Verse 1</JumpToById>
+<JumpToById target="holy-forever-verse2">→ Verse 2</JumpToById>
