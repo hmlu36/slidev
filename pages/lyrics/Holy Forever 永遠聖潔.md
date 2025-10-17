@@ -15,13 +15,12 @@
 
 ---
 
-<div id="holy-forever-verse2">
+<div id="holy-forever-verse2"/>
 
 #### [Verse 2-1]
 # 我已被祢赦免 我已被祢贖回
 # 永遠宣揚稱頌 神羔羊
 
-</div>
 
 ---
 
@@ -32,14 +31,13 @@
 
 ---
 
-<div id="holy-forever-pre-chorus1">
+<div id="holy-forever-pre-chorus1"/>
 
 #### [Pre Chorus 1]
 # 祢名 高過穹蒼
 # 祢名 何等偉大
 # 祢名 超乎萬名之上
 
-</div>
 
 ---
 
