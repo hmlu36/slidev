@@ -1,12 +1,18 @@
 <!-- components/JumpToById.vue -->
 <template>
-  <button type="button" class="jump-link" @click="jump"><slot>→ 跳轉</slot></button>
+  <button
+    type="button"
+    :class="['jump-link', (props.align === 'left' ? 'align-left' : 'align-right')]"
+    @click="jump"
+  >
+    <slot>→ 跳轉</slot>
+  </button>
 </template>
 
 <script setup lang="ts">
 import { nextTick } from 'vue'
 
-const props = defineProps<{ target: string }>() // 例如 'holy-forever-chorus1'
+const props = defineProps<{ target: string, align?: 'left' | 'right' }>()
 
 // 全域快取：ID -> 頁碼（若誤命中會自動刪除重建）
 const cache = (window as any).__jumpIdCache ||= new Map<string, number>()
@@ -64,7 +70,7 @@ async function jump(e: MouseEvent) {
 
   // 同頁直接滾動
   if (hasId(id)) {
-    document.getElementById(id)!.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById(id)!.scrollIntoView({ behavior: 'smooth', block: 'center' })
     busy = false
     return
   }
@@ -85,7 +91,7 @@ async function jump(e: MouseEvent) {
       }
     }
 
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
     else console.warn('找不到目標 ID：', id, '已清除快取並待下次重試')
   } else {
     console.warn('找不到目標 ID：', id)
@@ -100,9 +106,20 @@ async function jump(e: MouseEvent) {
   appearance: none; background: none; border: 0; padding: 0;
   color: #3b82f6; text-decoration: underline; cursor: pointer;
 
-  
-  /* 改為 block，會自動換行 */
   display: block;
-  margin: 0.25rem 0;
+  /* 用 padding 取代上下 margin，避免首/尾邊距塌陷 */
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  /* 若仍需水平推擠可保留 auto margin */
+}
+
+/* 右對齊、左對齊 */
+.align-right { margin-left: auto; }
+.align-left { margin-right: auto; }
+
+/* 全域樣式（例如在主題或全域樣式檔） */
+/* 對有 id 的元素與常見標題保留頂部緩衝，避免 scrollIntoView 對齊頂端時被遮住 */
+:where(h1, h2, h3, h4, h5, h6, [id]) { 
+  scroll-margin-top: var(--jump-offset, 64px);
 }
 </style>
