@@ -28,7 +28,7 @@ const hasId = (id:string)=>{
 
 async function goAndWait(p: number) {
   if ($slidev.nav.currentPage !== p) $slidev.nav.go(p)
-  await nextTick(); await sleep() // 視轉場效果可調 60~120ms
+  await nextTick(); await sleep(0) // 視轉場效果可調 60~120ms
 }
 
 async function resolvePage(id: string) {
