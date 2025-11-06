@@ -1,5 +1,5 @@
 
-###  因神的恩典(By the Grace of God)
+###  By the Grace of God 因神的恩典
 #### [Verse 1]
 
 # 我靈安歇於耶穌
