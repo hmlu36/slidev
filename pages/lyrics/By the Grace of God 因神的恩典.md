@@ -2,6 +2,8 @@
 ###  By the Grace of God 因神的恩典
 #### [Verse 1]
 
+<div id="by-the-grace-of-god-verse1"/>
+
 # 我靈安歇於耶穌
 # 當眾山搖動
 # 在我甦醒的時刻
@@ -25,7 +27,11 @@
 # 喔祢膀臂堅定不變引領我
 # 活著全因祢的恩典
 
+<JumpToById target="by-the-grace-of-god-verse1">→ Verse 1</JumpToById>
+
 ---
+
+<div id="by-the-grace-of-god-verse3"/>
 
 #### [Verse 3]
 
@@ -52,6 +58,7 @@
 # 喔祢膀臂堅定不變引領我
 # 活著全因祢的恩典
 
+<JumpToById target="by-the-grace-of-god-verse3">→ Verse 3</JumpToById>
 ---
 
 #### [Bridge]
