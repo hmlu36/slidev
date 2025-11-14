@@ -26,3 +26,9 @@ h1 {
 .taigi-lyrics h3 {
   font-family: 'LessonOne-Medium';
 }
+
+.spacing-0  h4,
+.spacing-0 h3,
+.spacing-0 h1{
+   letter-spacing: 0;
+ }
