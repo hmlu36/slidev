@@ -32,3 +32,12 @@ h1 {
 .spacing-0 h1{
    letter-spacing: 0;
  }
+
+.margin-sm h4,
+.margin-sm h3,
+.margin-sm h1 {
+  margin-top: 10px;
+}
+.offset-sm {
+  height: 20px;
+}
