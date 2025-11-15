@@ -1,9 +1,9 @@
 h1 {
-  font-size: 3.1em !important;
-  margin-top: 40px;
-  letter-spacing: 12px;
-  text-align: center;
-  font-family: 'CWTEX-K', sans-serif; 
+    font-size: 3.1em !important;
+    margin-top: 40px;
+    letter-spacing: 7px;
+    text-align: center;
+    font-family: 'CWTEX-K', sans-serif;
 }
 
 /* 黑底白字 */
@@ -15,37 +15,44 @@ h1 {
 */
 
 @font-face {
-  font-family: 'CWTEX-K'; 
-  src: url('./fonts/CWTEX-K2.woff2') format('woff2'),
-       url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
+    font-family: 'CWTEX-K';
+    src: url('./fonts/CWTEX-K2.woff2') format('woff2'),
+        url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
 
-  font-display: swap;
+    font-display: swap;
 }
 
 .taigi-lyrics h4,
 .taigi-lyrics h3 {
-  font-family: 'LessonOne-Medium';
+    font-family: 'LessonOne-Medium';
 }
 
 .spacing-0 h4,
 .spacing-0 h3,
 .spacing-0 h1 {
-   letter-spacing: 0;
-   text-align: center;
- }
- 
+    letter-spacing: 0;
+    text-align: center;
+}
+
 .spacing-0 {
-   letter-spacing: 0;
-   text-align: center;
- }
+    letter-spacing: 0;
+    text-align: center;
+}
 
 .margin-sm h4,
 .margin-sm h3,
 .margin-sm h1 {
-  margin-bottom: 5px;
-   text-align: center;
+    margin-bottom: 5px;
+    text-align: center;
 }
+
 .offset-sm {
-  height: 20px;
-   text-align: center;
+    height: 20px;
+    text-align: center;
+}
+
+
+/* 調整雙語標題間距 */
+.slidev-layout :where(h1 + h2, .spacing-0 h1 + h2) {
+  margin-top: -0.8rem; /* 視需要微調 */
 }
