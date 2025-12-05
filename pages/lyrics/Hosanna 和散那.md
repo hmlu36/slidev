@@ -24,6 +24,8 @@
 
 ---
 
+<div id="hosanna-verse2"></div>
+
 #### [Verse 2]
 # 我看見全新世代
 # 興起要得著這地
@@ -44,6 +46,8 @@
 # 和散那歸至高神
 # 和散那 和散那
 # 和散那歸至高神
+
+<JumpToById target="hosanna-verse2">→ Verse 2</JumpToById>
 
 ---
 
