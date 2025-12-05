@@ -1,5 +1,8 @@
-### 和撒那 (約書亞)
-##### Verse 1
+### Hosanna 和散那 (約書亞)
+
+<div id="hosanna-verse1"></div>
+
+#### [Verse 1]
 # 我看見榮耀君王
 # 駕著雲彩而降臨
 # 全地震動 全地震動
@@ -12,15 +15,16 @@
 
 ---
 
-##### Chorus
+#### [Chorus]
 # 和散那 和散那
 # 和散那歸至高神
 # 和散那 和散那
 # 和散那歸至高神
+<JumpToById target="hosanna-verse1">→ Verse 1</JumpToById>
 
 ---
 
-##### Verse 2
+#### [Verse 2]
 # 我看見全新世代
 # 興起要得著這地
 # 放下自己 放下自己
@@ -33,7 +37,17 @@
 
 ---
 
-##### Bridge
+<div id="hosanna-chorus"></div>
+
+#### [Chorus]
+# 和散那 和散那
+# 和散那歸至高神
+# 和散那 和散那
+# 和散那歸至高神
+
+---
+
+#### [Bridge]
 # 求醫治潔淨我心
 # 開啟我雙眼看見祢心意
 # 教我如何能愛祢的百姓
@@ -43,3 +57,5 @@
 # 我要能觸摸祢心
 # 我所做一切全為祢旨意
 # 一生追求祢直到天地廢去
+
+<JumpToById target="hosanna-chorus">→ Chorus</JumpToById>

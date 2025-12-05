@@ -1,5 +1,8 @@
 
-###  榮美的救主
+###  Beautiful Savior 榮美的救主
+
+<div id="beautiful-savior-verse"></div>
+
 #### [Verse]
 # 耶穌 榮美的救主
 # 復活全能真神 榮耀君王
@@ -20,8 +23,16 @@
 # 何等奇妙 何等榮耀
 # 耶穌我主 超乎萬名之上 耶穌
 
+<JumpToById target="beautiful-savior-verse">→ Verse</JumpToById>
+
 ---
 
 #### [Bridge]
 # 我要永遠敬拜
 # 耶穌我愛你 耶穌我愛你
+
+
+---
+
+#### [Tag]
+# 耶穌 榮美的救主

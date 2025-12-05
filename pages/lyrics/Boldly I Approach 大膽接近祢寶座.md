@@ -1,4 +1,8 @@
-### 大膽接近祢寶座
+### Boldly I Approach 大膽接近祢寶座
+
+
+<div id="boldly-i-approach-verse1"></div>
+
 #### [Verse 1]
 # 連天使都不敢踏進
 # 卻因恩典我在這裡
@@ -11,6 +15,8 @@
 # 進入永恆的懷抱裡
 
 ---
+
+<div id="boldly-i-approach-verse2"></div>
 
 #### [Verse 2]
 # 當我的心遭受責難
@@ -31,7 +37,12 @@
 # 快跑奔向祢 成為神兒女
 # 能進入尊貴榮耀裡
 
+<JumpToById target="boldly-i-approach-verse1">→ Verse 1</JumpToById>
+<JumpToById target="boldly-i-approach-verse2">→ Verse 2</JumpToById>
+
 ---
+
+<div id="boldly-i-approach-verse3"></div>
 
 #### [Verse 3]
 # 復活神兒子的光芒
@@ -43,6 +54,16 @@
 
 # 喔 千千年 千種語言
 # 也不足夠對祂讚美
+
+---
+
+#### [Chorus]
+# 大膽接近祢寶座
+# 因祢寶血救贖我
+# 快跑奔向祢 成為神兒女
+# 能進入尊貴榮耀裡
+
+<JumpToById target="boldly-i-approach-verse3">→ Verse 3</JumpToById>
 
 ---
 
