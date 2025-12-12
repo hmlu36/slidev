@@ -1,5 +1,8 @@
 
 ### Here I Bow 我願降服
+
+<div id="here-i-bow-verse1"></div>
+
 #### [Verse 1]
 # 我能去哪 除了祢施恩座前  
 # 我降服於 祢十架的恩典
@@ -13,8 +16,11 @@
 # 耶穌 祢得榮耀
 # 我所有 和我生命 
 # 我屬祢 永遠屬祢
+<JumpToById target="here-i-bow-verse1">→ Verse 1</JumpToById>
 
 ----
+
+<div id="here-i-bow-verse2"></div>
 
 #### [Verse 2]
 # 榮耀君王 祢的鞭傷能醫治  
@@ -29,6 +35,7 @@
 # 耶穌 祢得榮耀
 # 我所有 和我生命 
 # 我屬祢 永遠屬祢
+<JumpToById target="here-i-bow-verse2">→ Verse 2</JumpToById>
  
 ---
 
