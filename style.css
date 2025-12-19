@@ -51,7 +51,6 @@ h1 {
     text-align: center;
 }
 
-
 /* 調整雙語標題間距 */
 .slidev-layout :where(h1 + h2, .spacing-0 h1 + h2) {
   margin-top: -0.8rem; /* 視需要微調 */
