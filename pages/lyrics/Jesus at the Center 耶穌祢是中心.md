@@ -24,6 +24,8 @@
 
 #### [Chorus]
 
+<div id="jesus-at-the-center-chorus"/>
+
 # 我心別無所求 
 # 無人能與祢相比
 # 耶穌祢是中心 
@@ -48,4 +50,5 @@
 # 萬膝都要跪拜 萬口要承認
 # 祢是救贖主 耶穌 耶穌
 
-<JumpToById target="jesus-at-the-center-verse1">→ Verse 1</JumpToById>
+<JumpToById target="jesus-at-the-center-chorus">→ Chorus</JumpToById>
+
