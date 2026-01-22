@@ -120,3 +120,66 @@ pip install Pillow
   - 在搜尋期間會暫時在 `body` 上加 `jumping` class，以避免跟全域換頁事件衝突。
 - 範例：固定在右側垂直排列（若需要多個按鈕）
 
+
+---
+
+## Python 環境
+### 1. 安裝與設定 Python 環境 (僅第一次需要)
+
+為了支援部分功能及未來的擴充，請先設定 Python 環境：
+
+**Windows:**
+執行 `setup_env.bat`
+
+**Linux/Mac:**
+執行 `./setup_env.sh`
+
+### 2. 進入 Python 虛擬環境 (開發者用)
+
+如果需要執行其他 Python 腳本 (如 `fonts/toolkit` 底下的工具)：
+
+**Windows:**
+執行 `start_env.bat`
+
+**Linux/Mac:**
+執行 `./start_env.sh`
+
+
+## 自動化每週投影片建立 (New Week Automation)
+
+我們提供了一個自動化腳本來簡化每週投影片的建立流程。
+
+### 1. 使用方式 (快速建立投影片)
+
+執行以下指令，將會：
+1. 自動計算下一個週五的日期。
+2. 建立 `pages/YYYY/YYYYMMDD.md` 檔案。
+3. 自動更新 `main.md` 指向新檔案。
+
+#### 基本用法 (使用預設歌曲)
+```bash
+npm run new-week
+```
+
+#### 指定歌曲
+可以直接帶入歌名，腳本會自動去 `pages/lyrics/` 尋找對應的 `.md` 檔案。
+```bash
+npm run new-week "永活盼望" "我要愛慕祢" "祢是我的一切"
+```
+
+#### 互動式搜尋 (模糊比對)
+如果不確定完整歌名，可以輸入關鍵字。如果找到多個部分匹配的結果，腳本會詢問你要使用哪一首。
+```bash
+npm run new-week "Center"
+```
+輸出範例：
+```text
+[NOT FOUND] Lyric file: Center.md
+    Possible matches:
+      1. Center 中心.md
+      2. Jesus at the Center 耶穌祢是中心.md
+    Select a song (1-2) or press Enter to keep "Center.md": 
+```
+輸入 `1` 即可選擇 `Center 中心.md`。
+
+

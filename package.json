@@ -4,7 +4,8 @@
   "scripts": {
     "build": "slidev build main.md",
     "dev": "slidev main.md --open",
-    "export": "slidev export main.md"
+    "export": "slidev export main.md",
+    "new-week": "node scripts/new-week.js"
   },
   "dependencies": {
     "@slidev/cli": "^52.0.0",
