@@ -3,6 +3,8 @@
 
 #### [Verse 1]
 
+<div id="living-hope-verse1"/>
+
 # 在祢我之間 有深淵隔絕
 # 有高山阻險無法跨越
 # 在絕望之中 我舉目望天
@@ -15,9 +17,13 @@
 # 恩典已成就 結局已陳寫
 # 主耶穌永活盼望
 
+<JumpToById target="living-hope-chorus">→ Chorus</JumpToById>
+
 ---
 
 #### [Verse 2]
+
+<div id="living-hope-verse2"/>
 
 # 有誰能想像 這偉大憐憫
 # 有誰能度量如此恩典
@@ -35,11 +41,16 @@
 
 #### [Chorus]
 
+<div id="living-hope-chorus"/>
+
 # 哈利路亞 讚美主祢釋放我
 # 哈利路亞 死亡不再綑綁我
-# 祢打破所有鎖鏈 
-# 祢名為救贖恩典
+# 祢打破所有鎖鏈    祢名為救贖恩典
 # 主耶穌永活盼望
+
+<JumpToById target="living-hope-verse1">→ Verse 1</JumpToById>
+<JumpToById target="living-hope-verse2">→ Verse 2</JumpToById>
+<JumpToById target="living-hope-tag">→ Tag</JumpToById>
 
 ---
 
@@ -53,6 +64,10 @@
 
 ---
 
-#### [Last]
+#### [Tag]
+
+<div id="living-hope-tag"/>
 
 # 主耶穌已經得勝利
+
+<JumpToById target="living-hope-chorus">→ Chorus</JumpToById>
