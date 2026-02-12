@@ -37,13 +37,70 @@ function onDocClick(e: MouseEvent) {
   $slidev.nav.next()
 }
 
+// ----- QR helpers: find imgs[data-target], build absolute https URL, update QR and click handler -----
+function updateQrImages(): void {
+  try {
+    // accept either data-target or class 'qr' (single attribute authoring)
+    document.querySelectorAll<HTMLImageElement>('img[data-target], img.qr').forEach((img) => {
+      // prefer explicit data-target
+      let target = img.getAttribute('data-target') || ''
+
+      // if no data-target, try to infer from a non-QR src (author used src as the target)
+      if (!target) {
+        const srcAttr = img.getAttribute('src') || ''
+        if (srcAttr && !srcAttr.includes('api.qrserver.com')) {
+          target = srcAttr
+          // remember original target in data-original for later
+          img.dataset.original = target
+        }
+      }
+
+      if (!target) return
+
+      let abs = target
+      try { abs = new URL(target, window.location.href).href } catch (e) { abs = target }
+      if (location.protocol === 'https:' && abs.indexOf('http:') === 0) abs = abs.replace(/^http:/, 'https:')
+
+      const qr = 'https://api.qrserver.com/v1/create-qr-code/?size=96x96&data=' + encodeURIComponent(abs)
+      img.src = qr
+      img.style.cursor = 'pointer'
+
+      // bind click only once
+      if (!img.dataset.bound) {
+        img.addEventListener('click', () => { window.open(abs, '_blank') })
+        img.dataset.bound = '1'
+      }
+    })
+  } catch (e) {
+    // fail silently
+  }
+}
+
+let qrObserver: MutationObserver | null = null
+
 onMounted(() => {
   window.addEventListener('wheel', onWheel, { passive: true })
   document.addEventListener('click', onDocClick, true) // capture 階段較穩
+
+  // Run once on mount
+  updateQrImages()
+
+  // Observe DOM changes (slides may be re-rendered)
+  try {
+    qrObserver = new MutationObserver((mutations) => {
+      // quick heuristic: if nodes added, re-run update
+      for (const m of mutations) {
+        if (m.addedNodes && m.addedNodes.length) { updateQrImages(); break }
+      }
+    })
+    qrObserver.observe(document.body, { childList: true, subtree: true })
+  } catch (e) { /* noop */ }
 })
+
 onBeforeUnmount(() => {
   window.removeEventListener('wheel', onWheel)
   document.removeEventListener('click', onDocClick, true)
+  if (qrObserver) { qrObserver.disconnect(); qrObserver = null }
 })
 </script>
 
