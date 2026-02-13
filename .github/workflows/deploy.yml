@@ -63,7 +63,7 @@ jobs:
         run: |
           # 這裡的路徑改為 '/CWTEX-K.subset.woff2' 
           # 因為檔案在 public 根目錄，部署後也會在網站根目錄
-          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./assets/CWTEX-K.subset.woff2') format('woff2')|g" style.css
+          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./CWTEX-K.subset.woff2') format('woff2')|g" style.css
 
       - name: Build
         run: |
