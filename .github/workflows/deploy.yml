@@ -44,7 +44,7 @@ jobs:
           sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./CWTEX-K.subset.woff2') format('woff2')|g" style.css
 
           # 檢查字體替換結果（除錯用）
-          grep -r "CWTEX-K.subset.woff2" dist/assets
+          grep -r "CWTEX-K.subset.woff2" ./style.css || echo "No occurrences found in style.css"
 
       - name: Build
         run: |
