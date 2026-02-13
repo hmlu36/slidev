@@ -45,6 +45,8 @@ jobs:
       - name: Generate fonts
         run: |
           python fonts/toolkit/findUniqueChar.py
+          # 確保輸出目錄存在（避免 pyftsubset 寫入失敗）
+          mkdir -p public/fonts
           pyftsubset fonts/toolkit/CWTEX-K.ttf \
                   --text-file=fonts/toolkit/unique_chars.txt \
                   --flavor=woff2 \
