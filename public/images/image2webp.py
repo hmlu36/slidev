@@ -13,5 +13,5 @@ def compress_and_convert_image(source_filename, target_filename, quality=80):
         img.save(target_path, 'webp', quality=quality)
 
 # Example: Compress and convert test.jpg to test.webp
-compress_and_convert_image('春聯-創意.png', '春聯-創意.webp', quality=5)
-compress_and_convert_image('春聯-楷書.png', '春聯-楷書.webp', quality=5)
+compress_and_convert_image('春聯-創意.png', '春聯-創意.webp', quality=20)
+compress_and_convert_image('春聯-楷書.png', '春聯-楷書.webp', quality=20)
