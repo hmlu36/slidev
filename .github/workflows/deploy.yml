@@ -37,18 +37,36 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Patch CSS Path for Production
+      - name: Install fonttools
         run: |
-          # 直接修改 dist 資料夾內已經編譯好的所有 CSS 檔案
-          # 將原本的 .ttf 路徑替換為正確的部署路徑
-          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./CWTEX-K.subset.woff2') format('woff2')|g" style.css
+          pip install fonttools brotli
+          pip install --upgrade fonttools[woff]
 
-          # 檢查字體替換結果（除錯用）
-          grep -r "CWTEX-K.subset.woff2" ./style.css || echo "No occurrences found in style.css"
+      - name: Generate fonts (BEFORE BUILD)
+        run: |
+          python fonts/toolkit/findUniqueChar.py
+          
+          # 建立 public 資料夾
+          mkdir -p public
+          
+          # 將字型產出到 public 根目錄
+          pyftsubset fonts/toolkit/CWTEX-K.ttf \
+                  --text-file=fonts/toolkit/unique_chars.txt \
+                  --flavor=woff2 \
+                  --no-hinting \
+                  --output-file=public/CWTEX-K.subset.woff2
+          
+          ls -lh public/CWTEX-K.subset.woff2 # 確認這裡不是 1KB
+
+      - name: Patch CSS Path
+        run: |
+          # 這裡的路徑改為 '/CWTEX-K.subset.woff2' 
+          # 因為檔案在 public 根目錄，部署後也會在網站根目錄
+          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('/${{github.event.repository.name}}/CWTEX-K.subset.woff2') format('woff2')|g" style.css
 
       - name: Build
         run: |
-            echo -e "y\n" | slidev build main.md --base /${{github.event.repository.name}}/
+          echo -e "y\n" | npx slidev build main.md --base /${{github.event.repository.name}}/
 
       - name: Install fonttools
         run: |
