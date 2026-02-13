@@ -51,7 +51,7 @@ jobs:
                   --no-hinting \
                   --drop-tables=DSIG,kern,hdmx \
                   --ignore-missing-glyphs \
-                  --output-file=fonts/toolkit/CWTEX-K.subset.woff2
+                  --output-file=fonts/CWTEX-K.subset.woff2
 
       - name: Build
         run: |

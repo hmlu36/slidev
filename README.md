@@ -63,12 +63,12 @@ pip install --user --upgrade fonttools[woff]
 ```
 
 * 執行npm run dev的時候，會先做predev，執行batch_commands.bat的指令，再產生投影片
--->
+
 
 ```
 .\fonts\toolkit\batch_commands.bat
 ```
-
+-->
 ---
 
 - **背景圖**

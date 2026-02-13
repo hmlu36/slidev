@@ -15,6 +15,28 @@
 import { onMounted, onBeforeUnmount, computed } from 'vue'
 import { useQrImages } from './src/composables/useQr'
 
+// 根據執行環境決定要載入的字型：本機用 TTF，部署用 WOFF2
+// - 本機 (localhost / file://) => './fonts/toolkit/CWTEX-K.ttf'
+// - 部署 (GitHub Pages 等)  => './fonts/CWTEX-K.subset.woff2'
+const _injectCwtexFont = () => {
+  try {
+    const host = location.hostname || ''
+    const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || location.protocol === 'file:'
+    // 只替換 font URL / format，其他屬性保留一致（避免重複 CSS）
+    const fontUrl = isLocal ? './fonts/toolkit/CWTEX-K.ttf' : './fonts/CWTEX-K.subset.woff2'
+    const fontFormat = isLocal ? 'truetype' : 'woff2'
+    const css = `@font-face{font-family:\'CWTEX-K\';src:url(\'${fontUrl}\') format(\'${fontFormat}\');font-display:swap;}`
+    const s = document.createElement('style')
+    s.setAttribute('data-injected', 'cwtex-env')
+    s.textContent = css
+    document.head.appendChild(s)
+  } catch (e) {
+    /* noop */
+  }
+}
+
+_injectCwtexFont();
+
 const isLyricSlide = computed(() => {
   return $slidev.nav.currentRoute?.path?.includes('lyrics')
 })
