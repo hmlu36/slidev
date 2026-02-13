@@ -45,7 +45,13 @@ jobs:
       - name: Generate fonts
         run: |
           python fonts/toolkit/findUniqueChar.py
-          pyftsubset fonts/toolkit/CWTEX-K.ttf --text-file=fonts/toolkit/unique_chars.txt --no-hinting --output-file=fonts/toolkit/CWTEX-K2.ttf
+          pyftsubset fonts/toolkit/CWTEX-K.ttf \
+                  --text-file=fonts/toolkit/unique_chars.txt \
+                  --flavor=woff2 \
+                  --no-hinting \
+                  --drop-tables=DSIG,kern,hdmx \
+                  --ignore-missing-glyphs \
+                  --output-file=fonts/toolkit/CWTEX-K.subset.woff2
           python fonts/toolkit/converTtf2Woff.py
 
       - name: Build
