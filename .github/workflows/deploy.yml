@@ -72,9 +72,6 @@ jobs:
           # 檢查字體替換結果（除錯用）
           grep -r "CWTEX-K.subset.woff2" dist/assets
 
-          # 檢查：Vite 應該會把字型搬進 dist/assets/ 並重新命名
-          ls -R dist/assets/CWTEX-K.subset*.woff2
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
