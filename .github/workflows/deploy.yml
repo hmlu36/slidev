@@ -61,9 +61,8 @@ jobs:
 
       - name: Patch CSS Path
         run: |
-          # 因為檔案在 public 根目錄，部署後也會在網站根目錄
-          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('${{github.event.repository.name}}/CWTEX-K.subset.woff2') format('woff2')|g" style.css
-
+          # 加上開頭斜線 / 確保從網域根部開始尋找
+          sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('/${{github.event.repository.name}}/CWTEX-K.subset.woff2') format('woff2')|g" style.css
       - name: Build
         run: |
           echo -e "y\n" | npx slidev build main.md --base /${{github.event.repository.name}}/
