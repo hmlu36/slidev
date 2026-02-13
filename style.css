@@ -1,17 +1,3 @@
-/* 設定變數給 Slidev 核心使用 */
-:root {
-  --slidev-font-family: 'CWTEX-K', sans-serif;
-  --slidev-font-serif: 'CWTEX-K', serif;
-}
-
-/* 強制套用到所有投影片容器與標題 */
-.slidev-layout, 
-.slidev-content,
-h1, h2, h3, h4, h5, h6, 
-p, li, span, div {
-  font-family: 'CWTEX-K', sans-serif !important;
-}
-
 h1 {
     font-size: 3.1em !important;
     margin-top: 40px;
@@ -26,6 +12,7 @@ h1 {
   color: #fff;
 }
 */
+
 
 @font-face {
     font-family: 'CWTEX-K';

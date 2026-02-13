@@ -62,9 +62,12 @@ jobs:
 
       - name: Patch CSS Path for Production
         run: |
-          # 使用 | 作為定界符，避免 URL 裡的 / 造成衝突
-          # 將原本指向本地 ttf 的路徑，直接替換成 GitHub Pages 的 woff2 絕對路徑
-          sed -i "s|url('./fonts/toolkit/CWTEX-K.ttf') format('truetype')|url('./CWTEX-K.subset.woff2') format('woff2')|g" style.css
+          # 直接修改 dist 資料夾內已經編譯好的所有 CSS 檔案
+          # 將原本的 .ttf 路徑替換為正確的部署路徑
+          find dist/assets -name "*.css" -exec sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format(['\"]truetype['\"])|url('./CWTEX-K.subset.woff2') format('woff2')|g" {} +
+          
+          # 檢查替換結果（除錯用）
+          grep -r "CWTEX-K.subset.woff2" dist/assets
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
