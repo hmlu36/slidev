@@ -49,7 +49,7 @@ src: ../lyrics/以馬內利.md
 - **為了讓字體壓縮到最小，python處理動作如下**  
 1. 先讀取pages底下的投影片檔案，抓出不重複中文字寫到fonts/toolkit底下unique-chars.txt
    (fonts/toolkit/findUniqueChar.py)
-2. 會根據unique-chars.txt比對字型檔(CWTEX-K.ttf)中的字，篩選出有的字產生CWTEX-K2.ttf
+2. 會根據unique-chars.txt比對字型檔(CWTEX-K.ttf)中的字，篩選出有的字產生CWTEX-K.subset.woff2
 3. 將ttf轉成woff2格式，檔案會更小
    (fonts/toolkit/converTtf2Woff.py)
 

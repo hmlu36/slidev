@@ -16,7 +16,7 @@ h1 {
 
 @font-face {
     font-family: 'CWTEX-K';
-    src: url('./fonts/CWTEX-K2.woff2') format('woff2'),
+    src: url('./fonts/CWTEX-K.subset.woff2') format('woff2'),
         url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
 
     font-display: swap;
@@ -53,5 +53,6 @@ h1 {
 
 /* 調整雙語標題間距 */
 .slidev-layout :where(h1 + h2, .spacing-0 h1 + h2) {
-  margin-top: -0.8rem; /* 視需要微調 */
+    margin-top: -0.8rem;
+    /* 視需要微調 */
 }

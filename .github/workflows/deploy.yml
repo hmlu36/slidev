@@ -52,7 +52,6 @@ jobs:
                   --drop-tables=DSIG,kern,hdmx \
                   --ignore-missing-glyphs \
                   --output-file=fonts/toolkit/CWTEX-K.subset.woff2
-          python fonts/toolkit/converTtf2Woff.py
 
       - name: Build
         run: |
