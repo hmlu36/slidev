@@ -23,7 +23,7 @@ const _injectCwtexFont = () => {
     const host = location.hostname || ''
     const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || location.protocol === 'file:'
     // 只替換 font URL / format，其他屬性保留一致（避免重複 CSS）
-    const fontUrl = isLocal ? './fonts/toolkit/CWTEX-K.ttf' : './fonts/CWTEX-K.subset.woff2'
+    const fontUrl = isLocal ? './fonts/toolkit/CWTEX-K.ttf' : '/fonts/CWTEX-K.subset.woff2'
     const fontFormat = isLocal ? 'truetype' : 'woff2'
     const css = `@font-face{font-family:\'CWTEX-K\';src:url(\'${fontUrl}\') format(\'${fontFormat}\');font-display:swap;}`
     const s = document.createElement('style')
