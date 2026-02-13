@@ -16,7 +16,7 @@ h1 {
 
 @font-face {
     font-family: 'CWTEX-K';
-    src: url('/fonts/CWTEX-K.subset.woff2') format('woff2'),
+    src: url('/${{github.event.repository.name}}/fonts/CWTEX-K.subset.woff2') format('woff2'),
         url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
 
     font-display: swap;
