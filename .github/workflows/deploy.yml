@@ -37,6 +37,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Build
+        run: |
+            echo -e "y\n" | slidev build main.md --base /${{github.event.repository.name}}/
+
+
       - name: Install fonttools
         run: |
           pip install fonttools brotli
@@ -53,10 +58,10 @@ jobs:
                   --text-file=fonts/toolkit/unique_chars.txt \
                   --flavor=woff2 \
                   --no-hinting \
-                  --output-file=./CWTEX-K.subset.woff2
+                  --output-file=./dist/assets/CWTEX-K.subset.woff2
           
           # (選配) 檢查檔案是否真的在那裡，失敗的話 Action 會報錯
-          ls -lh ./CWTEX-K.subset.woff2
+          ls -lh ./dist/assets/CWTEX-K.subset.woff2
 
       - name: Patch CSS Path for Production
         run: |
@@ -64,12 +69,11 @@ jobs:
           # 將原本的 .ttf 路徑替換為正確的部署路徑
           sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./CWTEX-K.subset.woff2') format('woff2')|g" style.css
 
-      - name: Build
-        run: |
-            echo -e "y\n" | slidev build main.md --base /${{github.event.repository.name}}/
+          # 檢查字體替換結果（除錯用）
+          grep -r "CWTEX-K.subset.woff2" dist/assets
 
-            # 檢查字體替換結果（除錯用）
-            grep -r "CWTEX-K.subset.woff2" dist/assets
+          # 檢查：Vite 應該會把字型搬進 dist/assets/ 並重新命名
+          ls -R dist/assets/CWTEX-K.subset*.woff2
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
