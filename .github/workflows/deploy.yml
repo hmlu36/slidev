@@ -64,8 +64,8 @@ jobs:
         run: |
           # 直接修改 dist 資料夾內已經編譯好的所有 CSS 檔案
           # 將原本的 .ttf 路徑替換為正確的部署路徑
-          find dist/assets -name "*.css" -exec sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format(['\"]truetype['\"])|url('./CWTEX-K.subset.woff2') format('woff2')|g" {} +
-          
+          find dist/assets -name "*.css" -print -exec sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('./CWTEX-K.subset.woff2') format('woff2')|g" {} +
+
           # 檢查替換結果（除錯用）
           grep -r "CWTEX-K.subset.woff2" dist/assets
 
