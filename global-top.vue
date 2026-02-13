@@ -15,8 +15,6 @@
 import { onMounted, onBeforeUnmount, computed } from 'vue'
 import { useQrImages } from './src/composables/useQr'
 
-_injectCwtexFont();
-
 const isLyricSlide = computed(() => {
   return $slidev.nav.currentRoute?.path?.includes('lyrics')
 })
