@@ -27,6 +27,7 @@ htmlAttrs:
   
 # favicon, can be a local file path or URL
 favicon: '/images/favicon.png'
+
 ---
 
  # 2026/02/13

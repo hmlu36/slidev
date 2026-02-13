@@ -1,9 +1,22 @@
+/* 設定變數給 Slidev 核心使用 */
+:root {
+  --slidev-font-family: 'CWTEX-K', sans-serif;
+  --slidev-font-serif: 'CWTEX-K', serif;
+}
+
+/* 強制套用到所有投影片容器與標題 */
+.slidev-layout, 
+.slidev-content,
+h1, h2, h3, h4, h5, h6, 
+p, li, span, div {
+  font-family: 'CWTEX-K', sans-serif !important;
+}
+
 h1 {
     font-size: 3.1em !important;
     margin-top: 40px;
     letter-spacing: 7px;
     text-align: center;
-    font-family: 'CWTEX-K', sans-serif;
 }
 
 /* 黑底白字 */
@@ -16,7 +29,7 @@ h1 {
 
 @font-face {
     font-family: 'CWTEX-K';
-    src: url('./assets/CWTEX-K.subset.woff2') format('woff2'),
+    src: url('./CWTEX-K.subset.woff2') format('woff2'),
         url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
 
     font-display: swap;
