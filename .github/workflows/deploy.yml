@@ -39,14 +39,17 @@ jobs:
 
       - name: Install fonttools
         run: |
-          pip install fonttools
+          pip install fonttools brotli
           pip install --upgrade fonttools[woff]
 
       - name: Generate fonts
         run: |
           python fonts/toolkit/findUniqueChar.py
+
           # 確保輸出目錄存在（避免 pyftsubset 寫入失敗）
           mkdir -p public/fonts
+
+          # 執行字型壓縮
           pyftsubset fonts/toolkit/CWTEX-K.ttf \
                   --text-file=fonts/toolkit/unique_chars.txt \
                   --flavor=woff2 \
@@ -58,6 +61,13 @@ jobs:
       - name: Build
         run: |
             echo -e "y\n" | slidev build main.md --base /${{github.event.repository.name}}/
+            
+            # 手動強制搬運：確保字型進入發佈目錄
+            mkdir -p dist/fonts
+            cp public/fonts/*.woff2 dist/fonts/
+
+      - name: Debug Output
+        run: ls -R dist/fonts || ls -R dist/public/fonts || echo "Fonts not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

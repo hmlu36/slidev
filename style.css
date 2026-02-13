@@ -14,6 +14,14 @@ h1 {
 }
 */
 
+@font-face {
+    font-family: 'CWTEX-K';
+    src: url('/fonts/CWTEX-K.subset.woff2') format('woff2'),
+        url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
+
+    font-display: swap;
+}
+
 .taigi-lyrics h4,
 .taigi-lyrics h3 {
     font-family: 'LessonOne-Medium';
