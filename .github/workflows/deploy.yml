@@ -37,6 +37,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install fonttools
+        run: |
+          pip install fonttools brotli
+          pip install --upgrade fonttools[woff]
+
       - name: Generate fonts
         run: |
           python fonts/toolkit/findUniqueChar.py
