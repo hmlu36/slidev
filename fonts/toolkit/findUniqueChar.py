@@ -1,14 +1,11 @@
 import os
 import glob
 
-# 搜尋`pages`目錄下的所有MD檔案
-pages_mds  = glob.glob('pages/*.md')
+# 搜尋`pages`目錄下的所有MD檔案（包含子目錄）
+pages_mds = glob.glob('pages/**/*.md', recursive=True)
 
-lyrics_mds = glob.glob('pages/lyrics/*.md')  
-
-# 合併檔案路徑
-md_files = pages_mds + lyrics_mds
-
+# 合併並去重（避免重複，例如 pages/lyrics 已包含在上面的遞迴結果）
+md_files = sorted(set(pages_mds))
 
 # 創建一個集合來存儲不重複的中文字
 unique_chars = set()
