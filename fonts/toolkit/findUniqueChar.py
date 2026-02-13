@@ -10,7 +10,7 @@ md_files = sorted(set(pages_mds))
 # 創建一個集合來存儲不重複的字元（只保留必要字元以便做字型 subset）
 import re
 
-allowed_re = re.compile(r"[\u4E00-\u9FFF\u3400-\u4DBF\u20000-\u2A6DF\u3000-\u303F0-9A-Za-z\uFF00-\uFFEF\u2000-\u206F\u002F\[\]\(\)\-,:.?!'\"\\/] ")
+allowed_re = re.compile(r"[\u4E00-\u9FFF\u3400-\u4DBF\u20000-\u2A6DF\u3000-\u303F0-9A-Za-z\uFF00-\uFFEF\u2000-\u206F\u002F\[\]\(\)\-,:.?!'\"\\/]")
 
 def keep_char(ch):
     """只保留：常用漢字範圍、阿拉伯數字、基本 ASCII 標點、全形標點及常用符號。"""
