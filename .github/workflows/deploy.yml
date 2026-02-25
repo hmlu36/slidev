@@ -54,6 +54,8 @@ jobs:
                   --text-file=fonts/toolkit/unique_chars.txt \
                   --flavor=woff2 \
                   --no-hinting \
+                  --desubroutinize \
+                  --layout-features='' \
                   --output-file=public/CWTEX-K.subset.woff2
           
           # 確認檔案大小 (如果小於 5KB，代表 subset 失敗)
