@@ -84,6 +84,20 @@ pip install Pillow
 
 ## 元件使用說明：JumpToById 與 BilingualBlock
 
+### DegreeLine（和弦定位）
+- 作用：在歌詞上方放置和弦/級數提示。
+- 推薦寫法（可讀性較高）：
+```markdown
+<DegreeLine points="x=21 chord=4; x=39 chord=5; x=58 chord=4; x=79 chord=5" />
+```
+- 欄位說明：
+  - `x`：水平位置（0~100，代表百分比）
+  - `chord`：要顯示的文字（可用 `1/4/5`、`C/G/Am`、`IV/V`）
+- 相容舊寫法（仍可使用）：
+```markdown
+<DegreeLine points="21:4,39:5,58:4,79:5" />
+```
+
 ### BilingualBlock（雙語區塊）
 - 作用：把中英歌詞自動置中並維持一致排版，減少每段都要包 `<div>` 的需要。
 - 使用方式（在 .md 裡）：
