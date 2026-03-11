@@ -121,11 +121,27 @@ body.musician-mode .slidev-slide-content {
 /* 樂手模式核心排版：改回等比例縮放與格子佈局 */
 body.musician-mode #slideshow {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 使用 minmax 避免超出外容器 */
     gap: 0.5rem 0.5rem; /* 適中的間距 */
     align-items: start;
     padding: 1rem 0.5rem !important; /* 減少左右 padding 避免擠壓 */
     overflow-x: hidden !important; /* 防止產生水平卷軸 */
+    
+    /* 預設手機直式：1欄 */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+}
+
+/* 手機橫向或平板直立：2欄 */
+@media (min-width: 640px) {
+    body.musician-mode #slideshow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 平板橫向與電腦：3欄 */
+@media (min-width: 1024px) {
+    body.musician-mode #slideshow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 body.musician-mode .slidev-slide-content {
@@ -199,7 +215,7 @@ body.musician-mode #app,
 body.musician-mode #slide-container,
 body.musician-mode #slide-content {
     height: auto !important;
-    overflow-y: auto !important;
+    overflow-y: auto !important; /* 確保可以上下捲動 */
 }
 
 /* 忽略封面頁（日期/主題） */
@@ -207,13 +223,3 @@ body.musician-mode .slidev-page[data-slidev-no="1"] {
     display: none !important;
 }
 
-@media (max-width: 1024px) {
-    body.musician-mode #slideshow {
-        grid-template-columns: 1fr;
-    }
-    body.musician-mode .slidev-page {
-        transform: none !important;
-        width: 100% !important;
-        margin-bottom: 0.25rem;
-    }
-}

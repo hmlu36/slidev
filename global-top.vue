@@ -28,15 +28,27 @@ const isMusicianMode = computed(() => {
 function getMusicianScale() {
   const w = window.innerWidth
   const h = window.innerHeight
-  // 3欄佈局，目標寬度約為視窗的 1/3 (扣除間距與內距)
-  const targetW = (w - 60) / 3 
+  
+  // 決定目前顯示欄數 (對齊 CSS @media 斷點)
+  const cols = w >= 1024 ? 3 : (w >= 640 ? 2 : 1)
+  
+  // 目標寬度約為視窗寬度除以欄數 (扣除間距與內距 padding)
+  const targetW = (w - (cols * 20)) / cols 
   const scaleW = targetW / 980 // 投影片基準寬度 980px
   
-  // 為了讓兩排 (6張) 能盡量塞進高度，高度比例也列入考慮
-  const targetH = (h - 80) / 2
+  // 決定最佳顯示列數 (Rows)
+  // 如果是直立手機(1欄)，我們希望他上下能看清楚一點，不硬卡 2 排高度
+  // 如果是橫向或平板(2~3欄)，盡量符合 1首歌 約可顯示 4~6 張 (大概 2~3 排)
+  const roughRows = cols === 1 ? h / (targetW * 0.56) : 2.2 
+  const targetH = (h - 60) / roughRows
   const scaleH = targetH / 552 // 投影片基準高度 552px
   
-  // 取較小值以確保不溢出，但設定上下限
+  // 綜合考量，手機直立模式寬度優先，不被高度過度壓縮
+  if (cols === 1) {
+    return Math.min(scaleW, 0.9)
+  }
+  
+  // 橫向與多欄佈局：同時考量寬度與高度，避免某一張太大被切邊
   return Math.min(scaleW, scaleH, 0.45) 
 }
 
