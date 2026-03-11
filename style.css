@@ -105,3 +105,115 @@ h1 {
     white-space: pre;
     font-size: 3.1em !important;
 }
+
+/* 樂手模式：固定雙欄 + RWD 縮放，維持原始排版比例避免和弦偏移 */
+body.musician-mode .slidev-wrapper,
+body.musician-mode .slidev-slides-container,
+body.musician-mode .slidev-slides,
+body.musician-mode .slides,
+body.musician-mode #slideshow,
+body.musician-mode .slidev-slide-container,
+body.musician-mode .slidev-slide-content {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* 樂手模式核心排版：改回等比例縮放與格子佈局 */
+body.musician-mode #slideshow {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 使用 minmax 避免超出外容器 */
+    gap: 0.5rem 0.5rem; /* 適中的間距 */
+    align-items: start;
+    padding: 1rem 0.5rem !important; /* 減少左右 padding 避免擠壓 */
+    overflow-x: hidden !important; /* 防止產生水平卷軸 */
+}
+
+body.musician-mode .slidev-slide-content {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    padding: 0 !important; /* 內部間距交給原始投影片控制 */
+    transform-origin: top left !important;
+}
+
+body.musician-mode .slidev-page {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    min-height: auto !important;
+    /* 這裡的寬度與縮放將確保等比例 */
+    width: 980px !important; /* Slidev 預設寬度 */
+    height: 552px !important; /* Slidev 預設高度 */
+    transform: scale(var(--musician-scale, 0.3)) !important;
+    transform-origin: top left !important;
+    /* 讓容器向內收縮為實際顯示大小，避免把 Grid 撐爆 */
+    margin-right: calc(980px * (var(--musician-scale, 0.3) - 1));
+    margin-bottom: calc(552px * (var(--musician-scale, 0.3) - 1) + 0.1rem);
+    max-width: none !important; /* 防止 max-width 破壞 980px */
+}
+
+/* 每首歌的第一張（包含 h3 歌名）：強制回到第一欄 (換列) */
+body.musician-mode .slidev-page:has(h3) {
+    grid-column: 1; /* 若當前不在第一格，會強制跳到下一行的第一格 */
+}
+
+
+/* 移除對投影片內部元素的換行覆寫，恢復字體等比例顯示 */
+body.musician-mode h1 {
+    white-space: pre-wrap !important; /* 允許換行 */
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+/* 數字和弦放大：針對樂手需求特別加強和弦能見度 */
+body.musician-mode .degree-line {
+    font-size: 2rem !important; /* 原本大約 1.15rem，現在大幅放大 */
+    color: #ff9800 !important; /* 改成亮橘黃色更醒目 */
+    white-space: pre-wrap !important;
+    overflow: visible !important;
+    margin-bottom: 0.1rem !important; /* 稍微推開避免黏到歌詞 */
+    font-weight: 800; /* 加粗 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* 加上陰影增加對比度 */
+}
+
+/* 確保投影片內部的 transform 不會干擾 */
+body.musician-mode .slidev-layout {
+    transform: none !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body.musician-mode p:empty {
+    display: none;
+}
+
+body.musician-mode .slidev-page[style*="display: none"] {
+    display: block !important;
+}
+
+body.musician-mode,
+body.musician-mode #app,
+body.musician-mode #slide-container,
+body.musician-mode #slide-content {
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+/* 忽略封面頁（日期/主題） */
+body.musician-mode .slidev-page[data-slidev-no="1"] {
+    display: none !important;
+}
+
+@media (max-width: 1024px) {
+    body.musician-mode #slideshow {
+        grid-template-columns: 1fr;
+    }
+    body.musician-mode .slidev-page {
+        transform: none !important;
+        width: 100% !important;
+        margin-bottom: 0.25rem;
+    }
+}
