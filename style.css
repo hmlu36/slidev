@@ -179,20 +179,23 @@ body.musician-mode .slidev-page:has(h3) {
 
 /* 移除對投影片內部元素的換行覆寫，恢復字體等比例顯示 */
 body.musician-mode h1 {
-    white-space: pre-wrap !important; /* 允許換行 */
+    white-space: pre-wrap !important;
     overflow: visible !important;
     text-overflow: clip !important;
+    /* 字體用反向補償：視覺大小紦任在所有 scale 下保持一致，可用 A＋/A－ 調整 */
+    font-size: calc(3.1em * var(--musician-font-zoom, 1) / var(--musician-scale, 0.3)) !important;
 }
 
 /* 數字和弦放大：針對樂手需求特別加強和弦能見度 */
+/* 字體用反向補償：視覺大小 = 基準大小 × fontZoom，不隨 scale 縮小，可用 A＋/A－ 按鈕調整 */
 body.musician-mode .degree-line {
-    font-size: 2rem !important; /* 原本大約 1.15rem，現在大幅放大 */
-    color: #ff9800 !important; /* 改成亮橘黃色更醒目 */
+    font-size: calc(2rem * var(--musician-font-zoom, 1) / var(--musician-scale, 0.3)) !important;
+    color: #ff9800 !important;
     white-space: pre-wrap !important;
     overflow: visible !important;
-    margin-bottom: 0.1rem !important; /* 稍微推開避免黏到歌詞 */
-    font-weight: 800; /* 加粗 */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* 加上陰影增加對比度 */
+    margin-bottom: 0.1rem !important;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* 確保投影片內部的 transform 不會干擾 */

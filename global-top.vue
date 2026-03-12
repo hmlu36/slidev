@@ -8,11 +8,17 @@
       <button @click.stop="goToSection('chorus2')" class="nav-btn">C2</button>
       <span class="page-info">{{ $slidev.nav.currentPage }} / {{ $slidev.nav.total }}</span>
     </div>
+    <!-- 樂手模式：浮動字體大小控制 -->
+    <div v-if="isMusicianMode" class="font-ctrl absolute bottom-4 right-4 flex gap-2 z-50">
+      <button @click.stop="adjustFontZoom(-0.1)" class="font-btn" title="縮小字體">A－</button>
+      <span class="font-info">{{ Math.round(fontZoom * 100) }}%</span>
+      <button @click.stop="adjustFontZoom(0.1)" class="font-btn" title="放大字體">A＋</button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, computed, watchEffect } from 'vue'
+import { onMounted, onBeforeUnmount, computed, watchEffect, ref } from 'vue'
 import { useQrImages } from './src/composables/useQr'
 
 const isLyricSlide = computed(() => {
@@ -24,6 +30,9 @@ const isMusicianMode = computed(() => {
   const query = new URLSearchParams(window.location.search)
   return tail === 'musician' || query.has('musician')
 })
+
+// 字體縮放倍率 (1.0 = 100%，使用者可調整)
+const fontZoom = ref(1.0)
 
 function getMusicianScale() {
   const w = window.innerWidth
@@ -37,27 +46,32 @@ function getMusicianScale() {
   const scaleW = targetW / 980 // 投影片基準寬度 980px
   
   // 決定最佳顯示列數 (Rows)
-  // 如果是直立手機(1欄)，我們希望他上下能看清楚一點，不硬卡 2 排高度
-  // 如果是橫向或平板(2~3欄)，盡量符合 1首歌 約可顯示 4~6 張 (大概 2~3 排)
   const roughRows = cols === 1 ? h / (targetW * 0.56) : 2.2 
   const targetH = (h - 60) / roughRows
   const scaleH = targetH / 552 // 投影片基準高度 552px
   
-  // 綜合考量，手機直立模式寬度優先，不被高度過度壓縮
   if (cols === 1) {
     return Math.min(scaleW, 0.9)
   }
-  
-  // 橫向與多欄佈局：同時考量寬度與高度，避免某一張太大被切邊
   return Math.min(scaleW, scaleH, 0.45) 
 }
 
 function applyMusicianVars() {
   if (!isMusicianMode.value) {
     document.documentElement.style.removeProperty('--musician-scale')
+    document.documentElement.style.removeProperty('--musician-font-zoom')
     return
   }
-  document.documentElement.style.setProperty('--musician-scale', String(getMusicianScale()))
+  const scale = getMusicianScale()
+  document.documentElement.style.setProperty('--musician-scale', String(scale))
+  // 字體縮放：使用者手動倍率 × scale 的反比（讓字體在縮放後維持可讀大小）
+  // 基礎字體大小 = 原始大小 × fontZoom，再由外層 scale 等比縮放
+  document.documentElement.style.setProperty('--musician-font-zoom', String(fontZoom.value))
+}
+
+function adjustFontZoom(delta: number) {
+  fontZoom.value = Math.max(0.4, Math.min(3.0, fontZoom.value + delta))
+  applyMusicianVars()
 }
 
 function goToSection(sectionName: string) {
@@ -106,6 +120,7 @@ onBeforeUnmount(() => {
   stopQrObserver()
   document.body.classList.remove('musician-mode')
   document.documentElement.style.removeProperty('--musician-scale')
+  document.documentElement.style.removeProperty('--musician-font-zoom')
 })
 </script>
 
@@ -133,5 +148,32 @@ onBeforeUnmount(() => {
 .nav-btn:hover { background-color: #45a049; }
 .page-info {
   color: #fff; font-size: 0.8rem; display: flex; align-items: center; padding: 0 5px;
+}
+/* 樂手模式：字體大小控制按鈕 */
+.font-ctrl {
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  padding: 6px 10px;
+  align-items: center;
+  user-select: none;
+}
+.font-btn {
+  padding: 4px 10px;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.font-btn:hover { background-color: #e68900; }
+.font-info {
+  color: #fff;
+  font-size: 0.8rem;
+  min-width: 3em;
+  text-align: center;
 }
 </style>
