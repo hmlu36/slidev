@@ -11,7 +11,7 @@
     <!-- 樂手模式：浮動字體大小控制 -->
     <div v-if="isMusicianMode" class="font-ctrl absolute bottom-4 right-4 flex gap-2 z-50">
       <button @click.stop="adjustFontZoom(-0.1)" class="font-btn" title="縮小字體">A－</button>
-      <span class="font-info">{{ Math.round(fontZoom * 100) }}%</span>
+      <span class="font-info">{{ Math.round(scaleMultiplier * 100) }}%</span>
       <button @click.stop="adjustFontZoom(0.1)" class="font-btn" title="放大字體">A＋</button>
     </div>
   </div>
@@ -31,8 +31,9 @@ const isMusicianMode = computed(() => {
   return tail === 'musician' || query.has('musician')
 })
 
-// 字體縮放倍率 (1.0 = 100%，使用者可調整)
-const fontZoom = ref(1.0)
+// Tile 縮放倍率（1.0 = 系統最佳化，A＋ 放大 tile / A－ 縮小 tile）
+// 注意：不可改 h1 font-size，否則 DegreeLine x% 校準會跑掉
+const scaleMultiplier = ref(1.0)
 
 function getMusicianScale() {
   const w = window.innerWidth
@@ -53,7 +54,7 @@ function getMusicianScale() {
   if (cols === 1) {
     return Math.min(scaleW, 0.9)
   }
-  return Math.min(scaleW, scaleH, 0.45) 
+  return Math.min(scaleW, scaleH, 0.45) * scaleMultiplier.value
 }
 
 function applyMusicianVars() {
@@ -64,13 +65,10 @@ function applyMusicianVars() {
   }
   const scale = getMusicianScale()
   document.documentElement.style.setProperty('--musician-scale', String(scale))
-  // 字體縮放：使用者手動倍率 × scale 的反比（讓字體在縮放後維持可讀大小）
-  // 基礎字體大小 = 原始大小 × fontZoom，再由外層 scale 等比縮放
-  document.documentElement.style.setProperty('--musician-font-zoom', String(fontZoom.value))
 }
 
 function adjustFontZoom(delta: number) {
-  fontZoom.value = Math.max(0.4, Math.min(3.0, fontZoom.value + delta))
+  scaleMultiplier.value = Math.max(0.3, Math.min(3.0, scaleMultiplier.value + delta))
   applyMusicianVars()
 }
 
@@ -120,7 +118,6 @@ onBeforeUnmount(() => {
   stopQrObserver()
   document.body.classList.remove('musician-mode')
   document.documentElement.style.removeProperty('--musician-scale')
-  document.documentElement.style.removeProperty('--musician-font-zoom')
 })
 </script>
 

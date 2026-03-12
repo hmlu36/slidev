@@ -59,7 +59,7 @@ h1 {
 .degree-line {
     white-space: pre;
     text-align: center;
-    color: #ffd166;
+    color: #ff9800 !important;
     font-size: 1.15rem;
     line-height: 1.05;
     letter-spacing: 0;
@@ -78,8 +78,8 @@ h1 {
     white-space: normal;
 }
 
-.degree-line.pin > span,
-.degree-line.pin > deg {
+.degree-line.pin>span,
+.degree-line.pin>deg {
     position: absolute;
     left: var(--x, auto);
     transform: translateX(-50%);
@@ -89,16 +89,16 @@ h1 {
 }
 
 /* 邊界點可避免字被切到畫面外 */
-.degree-line.pin > .edge-left {
+.degree-line.pin>.edge-left {
     transform: translateX(0);
 }
 
-.degree-line.pin > .edge-right {
+.degree-line.pin>.edge-right {
     transform: translateX(-100%);
 }
 
 /* 只影響 degree-line 下面那一行歌詞，避免字級被其他排版條件壓縮 */
-.degree-line + h1 {
+.degree-line+h1 {
     margin-top: 0.5rem !important;
     margin-bottom: 0.18rem;
     letter-spacing: 0 !important;
@@ -121,13 +121,16 @@ body.musician-mode .slidev-slide-content {
 /* 樂手模式核心排版：改回等比例縮放與格子佈局 */
 body.musician-mode #slideshow {
     display: grid !important;
-    gap: 0.5rem 0.5rem; /* 適中的間距 */
+    gap: 0.5rem 0.5rem;
+    /* 適中的間距 */
     align-items: start;
-    padding: 1rem 0.5rem !important; /* 減少左右 padding 避免擠壓 */
-    overflow-x: hidden !important; /* 防止產生水平卷軸 */
-    
+    padding: 1rem 0.5rem !important;
+    /* 減少左右 padding 避免擠壓 */
+    overflow-x: hidden !important;
+    /* 防止產生水平卷軸 */
+
     /* 預設手機直式：1欄 */
-    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 /* 手機橫向或平板直立：2欄 */
@@ -149,7 +152,8 @@ body.musician-mode .slidev-slide-content {
     left: auto !important;
     top: auto !important;
     transform: none !important;
-    padding: 0 !important; /* 內部間距交給原始投影片控制 */
+    padding: 0 !important;
+    /* 內部間距交給原始投影片控制 */
     transform-origin: top left !important;
 }
 
@@ -161,35 +165,37 @@ body.musician-mode .slidev-page {
     pointer-events: auto !important;
     min-height: auto !important;
     /* 這裡的寬度與縮放將確保等比例 */
-    width: 980px !important; /* Slidev 預設寬度 */
-    height: 552px !important; /* Slidev 預設高度 */
+    width: 980px !important;
+    /* Slidev 預設寬度 */
+    height: 552px !important;
+    /* Slidev 預設高度 */
     transform: scale(var(--musician-scale, 0.3)) !important;
     transform-origin: top left !important;
     /* 讓容器向內收縮為實際顯示大小，避免把 Grid 撐爆 */
     margin-right: calc(980px * (var(--musician-scale, 0.3) - 1));
     margin-bottom: calc(552px * (var(--musician-scale, 0.3) - 1) + 0.1rem);
-    max-width: none !important; /* 防止 max-width 破壞 980px */
+    max-width: none !important;
+    /* 防止 max-width 破壞 980px */
 }
 
 /* 每首歌的第一張（包含 h3 歌名）：強制回到第一欄 (換列) */
 body.musician-mode .slidev-page:has(h3) {
-    grid-column: 1; /* 若當前不在第一格，會強制跳到下一行的第一格 */
+    grid-column: 1;
+    /* 若當前不在第一格，會強制跳到下一行的第一格 */
 }
 
 
-/* 移除對投影片內部元素的換行覆寫，恢復字體等比例顯示 */
+/* ⚠ 不覆寫 h1 font-size：保持 3.1em 與原始投影片一致，
+   才能讓 DegreeLine x% 位置正確對應到每個音節。
+   由外層 scale transform 控制視覺大小（A＋/A－ 調整 tile 大小）。 */
 body.musician-mode h1 {
     white-space: pre-wrap !important;
     overflow: visible !important;
     text-overflow: clip !important;
-    /* 字體用反向補償：視覺大小紦任在所有 scale 下保持一致，可用 A＋/A－ 調整 */
-    font-size: calc(3.1em * var(--musician-font-zoom, 1) / var(--musician-scale, 0.3)) !important;
 }
 
-/* 數字和弦放大：針對樂手需求特別加強和弦能見度 */
-/* 字體用反向補償：視覺大小 = 基準大小 × fontZoom，不隨 scale 縮小，可用 A＋/A－ 按鈕調整 */
 body.musician-mode .degree-line {
-    font-size: calc(2rem * var(--musician-font-zoom, 1) / var(--musician-scale, 0.3)) !important;
+    font-size: 2rem !important;
     color: #ff9800 !important;
     white-space: pre-wrap !important;
     overflow: visible !important;
@@ -198,11 +204,26 @@ body.musician-mode .degree-line {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* 確保投影片內部的 transform 不會干擾 */
 body.musician-mode .slidev-layout {
-    transform: none !important;
+    transform: scale(1.4) !important;
+    transform-origin: center 10% !important;
     width: 100% !important;
     height: 100% !important;
+}
+
+/* 抵銷父層的 1.3 倍放大，讓 Verse、Chorus 等段落標記 (h4) 維持原本大小與位置 */
+body.musician-mode .slidev-layout h4 {
+    transform-origin: left top !important;
+    /* 微調位置補償縮放造成的偏移效果 */
+    margin-left: 150px;
+    margin-top: 0px;
+}
+
+body.musician-mode .slidev-layout h3 {
+    transform-origin: left top !important;
+    /* 微調位置補償縮放造成的偏移效果 */
+    margin-left: 100px;
+    margin-top: 0px;
 }
 
 body.musician-mode p:empty {
@@ -218,11 +239,11 @@ body.musician-mode #app,
 body.musician-mode #slide-container,
 body.musician-mode #slide-content {
     height: auto !important;
-    overflow-y: auto !important; /* 確保可以上下捲動 */
+    overflow-y: auto !important;
+    /* 確保可以上下捲動 */
 }
 
 /* 忽略封面頁（日期/主題） */
 body.musician-mode .slidev-page[data-slidev-no="1"] {
     display: none !important;
 }
-

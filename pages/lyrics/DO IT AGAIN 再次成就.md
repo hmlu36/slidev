@@ -1,4 +1,4 @@
-### 再次成就 DO IT AGAIN 
+### DO IT AGAIN 再次成就 
 #### [Verse 1]
 # 雖有高牆阻擋
 # 我知必然倒塌
