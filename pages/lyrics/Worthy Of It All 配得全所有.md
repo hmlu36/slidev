@@ -8,7 +8,7 @@
 <DegreeLine points="x=39 chord=4; x=61 chord=5" />
 # 眾長老謙卑
 
-<DegreeLine points="x=39 chord=4; x=56 chord=5; x=78 chord=1" />
+<DegreeLine points="x=56 chord=4; x=66 chord=5; x=78 chord=1" />
 # 卸下冠冕在神羔羊前敬拜
 
 ---
@@ -31,7 +31,7 @@
 <DegreeLine points="x=21 chord=1; x=57 chord=3m" />
 # 從白天到黑夜 升到祢座前
 
-<DegreeLine points="x=21 chord=5m; x=57 chord=4" />
+<DegreeLine points="x=21 chord=6m; x=57 chord=4" />
 # 馨香祭的呼求 升到祢座前
 # X2
 
@@ -41,6 +41,6 @@
 <DegreeLine points="x=41 chord=1; x=64 chord=5" />
 # 我尊崇祢 我尊崇祢
 
-<DegreeLine points="x=46 chord=4; x=64 chord=5" />
+<DegreeLine points="x=46 chord=4; x=59 chord=5; x=64 chord=1" />
 # 我尊崇祢 喔主
 
