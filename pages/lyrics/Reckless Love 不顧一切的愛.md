@@ -1,14 +1,10 @@
-
 ### Reckless Love 不顧一切的愛
 #### [Verse 1]
-<DegreeLine points="x=21 chord=6m; x=55 chord=5; x=78 chord=4;" />
-# 在我說話前 祢歌聲圍繞我
-<DegreeLine points="x=30 chord=6m; x=58 chord=5; x=69 chord=4;" />
-# 祢一直都對我真好
-<DegreeLine points="x=21 chord=6m; x=55 chord=5; x=78 chord=4;" />
-# 在我呼吸前 祢吹進祢氣息
-<DegreeLine points="x=30 chord=6m; x=58 chord=5; x=69 chord=4;" />
-# 祢一直都對我真好
+
+# [6m]在我說話前 [5]祢歌聲[4]圍繞我
+# [6m]祢一直 [5]都對我 真[4]好
+# [6m]在我呼吸前 [5]祢吹進[4]祢氣息
+# [6m]祢一直 [5]都對我 真[4]好
 
 ---
 
@@ -16,48 +12,34 @@
 
 #### [Chorus]
 
-<DegreeLine points="x=47 chord=6m;" />
-# 不顧一切的愛 
-<DegreeLine points="x=28 chord=5; x=50 chord=4; x=72 chord=1;" />
-# 排山倒海 無止盡的愛
-<DegreeLine points="x=47 chord=6m;" />
-# 祢拋下九十九 
-<DegreeLine points="x=28 chord=5; x=50 chord=4; x=72 chord=1;" />
-# 切切尋找 直到我回來
+# 不顧一[6m]切的愛 
+# [5]排山倒海 [4]無止盡的[1]愛
+# 祢拋下[6m]九十九 
+# [5]切切尋找 [4]直到我回[1]來
 
 ---
 
-<DegreeLine points="x=47 chord=6m;" />
-# 我不能賺得 
-<DegreeLine points="x=29 chord=5; x=54 chord=4; x=75 chord=1;" />
-# 完全不配得 祢仍然為我犧牲
-<DegreeLine points="x=47 chord=6m;" />
-# 不顧一切的愛 
-<DegreeLine points="x=28 chord=5; x=50 chord=4; x=72 chord=1;" />
-# 排山倒海 無止盡的愛
+# 我不能[6m]賺得 
+# [5]完全不配得 [4]祢仍然為我犧[1]牲
+# 不顧一[6m]切的愛 
+# [5]排山倒海 [4]無止盡的[1]愛
 
 ---
 
 #### [Bridge]
-<DegreeLine points="x=47 chord=6m;" />
-# 祢點亮了黑暗 
-<DegreeLine points="x=28 chord=5; x=56 chord=4; x=72 chord=1;" />
-# 翻越了高山 為找回我
-<DegreeLine points="x=47 chord=6m;" />
-# 祢拆毀了高牆 
-<DegreeLine points="x=28 chord=5; x=56 chord=4; x=72 chord=1;" />
-# 打破了謊話 為找回我
+
+# 祢點亮了[6m]黑暗 
+# [5]翻越了高山 [4]為找回[1]我
+# 祢拆毀了[6m]高牆 
+# [5]打破了謊話 [4]為找回[1]我
 
 ---
 
 #### [Verse 2]
-<DegreeLine points="x=27 chord=6m; x=65 chord=5; x=79 chord=4;" />
-# 當與祢為敵 祢仍為我爭戰
-<DegreeLine points="x=30 chord=6m; x=58 chord=5; x=69 chord=4;" />
-# 祢一直都對我真好
-<DegreeLine points="x=27 chord=6m; x=65 chord=5; x=79 chord=4;" />
-# 當我不值得 祢已付出一切
-<DegreeLine points="x=30 chord=6m; x=58 chord=5; x=69 chord=4;" />
-# 祢一直都對我真好
+
+# [6m]當與祢為敵 [5]祢仍為我爭[4]戰
+# [6m]祢一直 [5]都對我真[4]好
+# [6m]當我不值得 [5]祢已付出[4]一切
+# [6m]祢一直 [5]都對我真[4]好
 
 <JumpToById target="reckless-love-chorus">→ Chorus</JumpToById>

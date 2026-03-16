@@ -1,46 +1,26 @@
 
 ### Worthy Of It All 配得全所有
 #### [Verse]
-
-<DegreeLine points="x=21 chord=4; x=39 chord=5; x=58 chord=4; x=79 chord=5" />
-# 眾聖徒 眾天使 俯伏寶座前
-
-<DegreeLine points="x=39 chord=4; x=61 chord=5" />
-# 眾長老謙卑
-
-<DegreeLine points="x=56 chord=4; x=66 chord=5; x=78 chord=1" />
-# 卸下冠冕在神羔羊前敬拜
+# [4]眾聖徒 [5]眾天使 [4]俯伏[5]寶座前
+# [4]眾長老[5]謙卑
+# [4]卸下冠冕在[5]神羔[1]羊前敬拜
 
 ---
 
 #### [Chorus]
-
-<DegreeLine points="x=46 chord=1; x=80 chord=5" />
-# 祢配得全所有 祢配得全所有
-
-<DegreeLine points="x=46 chord=4; x=80 chord=5" />
-# 祢是萬物源頭 一切都歸於祢
-
-<DegreeLine points="x=63 chord=1" />
-# 配得所有榮耀
+# [1]祢配得全所有 [5]祢配得全所有
+# [4]祢是萬物源頭 [5]一切都歸於祢
+# [1]配得所有榮耀
 
 ---
 
 #### [Bridge]
-
-<DegreeLine points="x=21 chord=1; x=57 chord=3m" />
-# 從白天到黑夜 升到祢座前
-
-<DegreeLine points="x=21 chord=6m; x=57 chord=4" />
-# 馨香祭的呼求 升到祢座前
+# [1]從白天到黑夜 [5]升到祢座前
+# [6m]馨香祭的呼求 [4]升到祢座前
 # X2
 
 ---
 
 #### [Tag]
-<DegreeLine points="x=41 chord=1; x=64 chord=5" />
-# 我尊崇祢 我尊崇祢
-
-<DegreeLine points="x=46 chord=4; x=59 chord=5; x=64 chord=1" />
-# 我尊崇祢 喔主
-
+# [1]我尊崇祢  [5]我尊崇祢
+# [4]我尊崇[5]祢 喔[1]主
