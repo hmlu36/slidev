@@ -1,8 +1,28 @@
 h1 {
-    font-size: 3.1em !important;
-    margin-top: 40px;
-    letter-spacing: 7px;
+    font-size: 2.5em !important;
+    margin-top: 20px;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+    letter-spacing: 3px;
     text-align: center;
+}
+
+h2 {
+    font-size: 1.5em !important;
+    margin-top: 1px;
+    margin-bottom: 0;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+
+/* 讓 Verse / Chorus / Bridge 標題字體 */
+h4 {
+    font-size: 0.8em !important;
+    line-height: 1.2 !important;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
 }
 
 /* 黑底白字 */
@@ -24,6 +44,7 @@ h1 {
 .taigi-lyrics h3 {
     font-family: 'LessonOne-Medium';
 }
+
 
 .spacing-0 h4,
 .spacing-0 h3,

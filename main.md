@@ -27,12 +27,12 @@ htmlAttrs:
   
 # favicon, can be a local file path or URL
 favicon: '/images/favicon.png'
-
+# background: '/images/beautiful-nature-of-white-sandy-beach-and-ocean-in-tropical.webp'
 ---
 
- # 2026/03/20
- # New小組敬拜
+ # 2026/03/23
+ # 主日敬拜
 
 ---
-src: ./pages/2026/20260320.md
+src: ./pages/2026/20260323.md
 ---
