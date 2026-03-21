@@ -1,5 +1,7 @@
 # hmlu36 slidev
 
+## 網址: https://hmlu36.github.io/slidev/
+
 - **投影片小程式緣起**  
 
 1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔
