@@ -1,5 +1,11 @@
-### Boldly I Approach 大膽接近祢寶座
+---
+layout: center
+---
 
+# 大膽接近祢寶座
+# Boldly I Approach
+
+---
 
 <div id="boldly-i-approach-verse1"></div>
 

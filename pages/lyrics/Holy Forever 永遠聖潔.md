@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-### Holy Forever 永遠聖潔
+# 永遠聖潔
+# Holy Forever
+
+---
 
 <div id="holy-forever-verse1">
 

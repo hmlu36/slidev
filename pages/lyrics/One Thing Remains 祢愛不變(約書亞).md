@@ -1,4 +1,12 @@
-### One Thing Remains 祢愛不變(約書亞)
+---
+layout: center
+---
+
+# 祢愛不變(約書亞)
+# One Thing Remains
+
+---
+
 # 超過我所面對的高山
 # 勝過死亡陰間的挑戰
 # 跨過所有變動和艱難

@@ -1,5 +1,12 @@
+---
+layout: center
+---
 
-###  By the Grace of God 因神的恩典
+# 因神的恩典
+# By the Grace of God
+
+---
+
 #### [Verse 1]
 
 <div id="by-the-grace-of-god-verse1"/>

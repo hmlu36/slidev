@@ -1,4 +1,11 @@
-### With All I Am 全然為祢
+---
+layout: center
+---
+
+# 全然為祢
+# With All I Am
+
+---
 
 #### [Verse 1]
 # 我將生命交在祢手中

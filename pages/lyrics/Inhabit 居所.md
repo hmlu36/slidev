@@ -1,4 +1,12 @@
-### Inhabit 居所
+---
+layout: center
+---
+
+# 居所
+# Inhabit
+
+---
+
 #### [Verse 1]
 # 我只想成為 祢同在的居所
 # 接待聖潔神榮耀居所

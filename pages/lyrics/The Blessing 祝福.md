@@ -1,4 +1,12 @@
-### The Blessing 祝福
+---
+layout: center
+---
+
+# 祝福
+# The Blessing
+
+---
+
 #### [Verse]
 # 主賜福 保護你
 # 使祂的臉光照你 賜恩典給你

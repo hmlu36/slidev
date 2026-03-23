@@ -1,4 +1,11 @@
-### 當我呼求祢聖名 Mention of Your Name 
+---
+layout: center
+---
+
+# 當我呼求祢聖名
+# Mention of Your Name
+
+---
 
 #### [Verse 1]
 # 祢在這
@@ -62,4 +69,4 @@
 # 堅固磐石 祢是我能力 
 # 祢永不失敗
 # 我的盼望 祢拯救到底
-# Emmanuel 
+# Emmanuel

@@ -1,6 +1,6 @@
 ---
 # title of your slide, will auto infer from the first header if not specified
-title: 'LHC 主日敬拜'
+title: 'New 小組敬拜'
 # titleTemplate for the webpage, `%s` will be replaced by the page's title
 titleTemplate: '%s'
 # random image from a curated Unsplash collection by Anthony
@@ -26,7 +26,7 @@ htmlAttrs:
   lang: zh-TW
   
 # favicon, can be a local file path or URL
-favicon: '/images/lhc.png'
+favicon: '/images/favicon.png'
 # background: '/images/beautiful-nature-of-white-sandy-beach-and-ocean-in-tropical.webp'
 ---
 

@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-###  Beautiful Savior 榮美的救主
+# 榮美的救主
+# Beautiful Savior
+
+---
 
 <div id="beautiful-savior-verse"></div>
 

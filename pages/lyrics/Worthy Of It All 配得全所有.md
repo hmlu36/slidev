@@ -1,5 +1,12 @@
+---
+layout: center
+---
 
-### Worthy Of It All 配得全所有
+# 配得全所有
+# Worthy Of It All
+
+---
+
 #### [Verse]
 # [4]眾聖徒 [5]眾天使 [4]俯伏[5]寶座前
 # [4]眾長老[5]謙卑

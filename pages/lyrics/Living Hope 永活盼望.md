@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-###  Living Hope 永活盼望
+# 永活盼望
+# Living Hope
+
+---
 
 #### [Verse 1]
 

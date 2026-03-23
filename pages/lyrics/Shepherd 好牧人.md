@@ -1,4 +1,12 @@
-### Shepherd 好牧人
+---
+layout: center
+---
+
+# 好牧人
+# Shepherd
+
+---
+
 ##### [Verse 1]
 
 # [1]當我等候 [1/3]在過程中

@@ -1,4 +1,12 @@
-### Here I am to Worship 我在這裡敬拜
+---
+layout: center
+---
+
+# 我在這裡敬拜
+# Here I am to Worship
+
+---
+
 #### [Verse 1]
 # 神祢是光    祢照亮了黑暗
 # 開我眼讓我看見

@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-### You Are My All in All
+# You Are My All in All
+
+---
+
 #### [Verse 1]
 
 <div class="spacing-0">

@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-### Way Maker 開路者 
+# 開路者
+# Way Maker
+
+---
 
 # 祢同在 運行在這地
 # 我敬拜祢 我敬拜祢

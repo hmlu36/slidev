@@ -1,4 +1,11 @@
-### Give Me Jesus 只要耶穌
+---
+layout: center
+---
+
+# 只要耶穌
+# Give Me Jesus
+
+---
 
 #### [Verse 1] 
 # 除祢以外我無所求 
@@ -51,4 +58,3 @@
 #### [Tag]
 # 祢是我唯一 
 # 我唯一渴慕
-

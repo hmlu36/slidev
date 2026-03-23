@@ -1,4 +1,11 @@
-###  Holy Song 聖歌
+---
+layout: center
+---
+
+# 聖歌
+# Holy Song
+
+---
 
 #### [Verse 1]
 # 跟隨主的腳步 喜樂更認識祢

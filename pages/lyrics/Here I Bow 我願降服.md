@@ -1,5 +1,11 @@
+---
+layout: center
+---
 
-### Here I Bow 我願降服
+# 我願降服
+# Here I Bow
+
+---
 
 <div id="here-i-bow-verse1"></div>
 

@@ -1,4 +1,11 @@
-### Hosanna 和散那 (約書亞)
+---
+layout: center
+---
+
+# 和散那 (約書亞)
+# Hosanna
+
+---
 
 <div id="hosanna-verse1"></div>
 

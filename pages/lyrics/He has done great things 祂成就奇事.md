@@ -1,4 +1,12 @@
-### He has done great things 祂成就奇事
+---
+layout: center
+---
+
+# 祂成就奇事
+# He has done great things
+
+---
+
 #### [Verse]
 # 祂成就奇事 
 # 行做奇妙事 

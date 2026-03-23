@@ -1,4 +1,12 @@
-### What A Beautiful Name 何等榮美的名 
+---
+layout: center
+---
+
+# 何等榮美的名
+# What A Beautiful Name
+
+---
+
 #### [Verse 1]
 # 祢就是太初神的道 
 # 至高主與神同在

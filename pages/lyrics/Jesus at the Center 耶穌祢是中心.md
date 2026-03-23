@@ -1,5 +1,12 @@
+---
+layout: center
+---
 
-### Jesus at the Center 耶穌祢是中心
+# 耶穌祢是中心
+# Jesus at the Center
+
+---
+
 #### [Verse 1]
 
 
@@ -51,4 +58,3 @@
 # 祢是救贖主 耶穌 耶穌
 
 <JumpToById target="jesus-at-the-center-chorus">→ Chorus</JumpToById>
-

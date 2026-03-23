@@ -1,4 +1,12 @@
-### Holy Spirit 親愛聖靈
+---
+layout: center
+---
+
+# 親愛聖靈
+# Holy Spirit
+
+---
+
 #### [Verse 1]
 # 再沒有事物 能與祢相比
 # 活潑的盼望 超越全世界

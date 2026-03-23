@@ -1,4 +1,12 @@
-### Reckless Love 不顧一切的愛
+---
+layout: center
+---
+
+# 不顧一切的愛
+# Reckless Love
+
+---
+
 #### [Verse 1]
 
 # [6m]在我說話前 [5]祢歌聲[4]圍繞我

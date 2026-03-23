@@ -1,4 +1,12 @@
-### Here I am to Worship 世界真光
+---
+layout: center
+---
+
+# 世界真光
+# Here I am to Worship
+
+---
+
 #### [Verse 1]
 # 世界真光   祢照亮黑暗世界
 # 開我雙眼能看見

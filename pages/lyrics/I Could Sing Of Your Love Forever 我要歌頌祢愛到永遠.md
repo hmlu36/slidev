@@ -1,4 +1,12 @@
-### I Could Sing Of Your Love Forever 我要歌頌祢愛到永遠
+---
+layout: center
+---
+
+# 我要歌頌祢愛到永遠
+# I Could Sing Of Your Love Forever
+
+---
+
 #### [Verse]
 # 越過那高山深海洋
 # 祢愛如江河流向我
@@ -26,4 +34,3 @@
 # 我要跳舞讚美 雖然無人能明白
 # 當這世界看見真光
 # 喜樂要臨到 全地要讚美
-
