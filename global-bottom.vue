@@ -16,18 +16,35 @@ function isChordHiddenByFrontmatter(): boolean {
     const currentPage = nav.currentPage as number
     const slides = nav.slides as any[] | undefined
     if (!slides?.length || !currentPage) return false
-    const current = slides[currentPage - 1]
+    const currentIndex = currentPage - 1
+    const current = slides[currentIndex]
     if (!current) return false
     // 找出同一個來源檔案（source.filepath）的第一張，只需在那張設定 hideChords
     const getFilepath = (s: any): string | null =>
       s?.meta?.slide?.filepath ?? s?.source?.filepath ?? s?.filepath ?? null
+    const getStart = (s: any): number | null =>
+      typeof s?.meta?.slide?.start === 'number'
+        ? s.meta.slide.start
+        : typeof s?.start === 'number'
+          ? s.start
+          : null
     const getFrontmatter = (s: any): any =>
       s?.meta?.slide?.frontmatter ?? s?.frontmatter
       
     const currentFilepath = getFilepath(current)
-    const firstOfFile = currentFilepath
+    let firstOfFile = currentFilepath
       ? slides.find((s: any) => getFilepath(s) === currentFilepath)
       : current
+
+    // 在 production build（如 GitHub Pages）可能拿不到 filepath，改以 slide.start 反推同檔第一頁
+    if (!currentFilepath) {
+      for (let i = currentIndex; i >= 0; i--) {
+        if (getStart(slides[i]) === 0) {
+          firstOfFile = slides[i]
+          break
+        }
+      }
+    }
       
     return getFrontmatter(firstOfFile)?.hideChords === true
   } catch {
