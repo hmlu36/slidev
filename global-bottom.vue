@@ -9,7 +9,40 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 let observer: MutationObserver | null = null
 
+function isChordHiddenByFrontmatter(): boolean {
+  try {
+    const nav = ($slidev as any)?.nav
+    if (!nav) return false
+    const currentPage = nav.currentPage as number
+    const slides = nav.slides as any[] | undefined
+    if (!slides?.length || !currentPage) return false
+    const current = slides[currentPage - 1]
+    if (!current) return false
+    // 找出同一個來源檔案（source.filepath）的第一張，只需在那張設定 hideChords
+    const getFilepath = (s: any): string | null =>
+      s?.meta?.slide?.filepath ?? s?.source?.filepath ?? s?.filepath ?? null
+    const getFrontmatter = (s: any): any =>
+      s?.meta?.slide?.frontmatter ?? s?.frontmatter
+      
+    const currentFilepath = getFilepath(current)
+    const firstOfFile = currentFilepath
+      ? slides.find((s: any) => getFilepath(s) === currentFilepath)
+      : current
+      
+    return getFrontmatter(firstOfFile)?.hideChords === true
+  } catch {
+    return false
+  }
+}
+
+function applyChordVisibilityFlag() {
+  document.body.classList.toggle('hide-chords', isChordHiddenByFrontmatter())
+}
+
 function parseChords() {
+  applyChordVisibilityFlag()
+  if (isChordHiddenByFrontmatter()) return
+
   // 只針對還沒被解析過的 h1 標籤進行替換，大幅提升效能
   const h1s = document.querySelectorAll('.slidev-layout h1:not([data-chord-parsed])')
   if (!h1s.length) return
@@ -70,10 +103,12 @@ function parseChords() {
 }
 
 onMounted(() => {
+  applyChordVisibilityFlag()
   setTimeout(parseChords, 100)
   setTimeout(parseChords, 500)
   
-  watch(() => router.currentRoute.value.path, () => {
+  watch(() => router.currentRoute.value.fullPath, () => {
+    applyChordVisibilityFlag()
     setTimeout(parseChords, 100)
     setTimeout(parseChords, 500)
   })
@@ -103,6 +138,7 @@ onUnmounted(() => {
   if (observer) {
     observer.disconnect()
   }
+  document.body.classList.remove('hide-chords')
 })
 </script>
 
@@ -116,7 +152,7 @@ onUnmounted(() => {
 /* 浮動在字首正上方，或者在空格上方 */
 .chord {
   position: absolute;
-  top: -3.3em; /* 往上推大約一個巨型字體的高度 */
+  top: -4em; /* 往上推大約一個巨型字體的高度 */
   left: 1.3em;
   width: 1em; /* 給和弦一個基礎寬度 */
   display: flex;
@@ -124,8 +160,8 @@ onUnmounted(() => {
   transform: translateX(-50%); /* 往回拉一半，確保以字元的起始點為中心 */
   color: #ff9800 !important;
   font-family: 'Cascadia Mono', 'Consolas', 'Courier New', monospace;
-  font-size: 0.38em; /* 相對於 h1 的比例 */
-  font-weight: 700;
+  font-size: 0.32em; /* 相對於 h1 的比例 */
+  font-weight: 600;
   letter-spacing: 0;
   white-space: nowrap;
 }
@@ -136,5 +172,11 @@ body.musician-mode .chord {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   top: -2.1em; /* 往上推大約一個巨型字體的高度 */
   left: 0.8em;
+}
+
+/* 以 frontmatter 控制暫時隱藏和弦 */
+body.hide-chords .chord,
+.slidev-layout.hide-chords .chord {
+  display: none !important;
 }
 </style>

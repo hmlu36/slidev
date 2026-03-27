@@ -32,7 +32,6 @@ const isMusicianMode = computed(() => {
 })
 
 // Tile 縮放倍率（1.0 = 系統最佳化，A＋ 放大 tile / A－ 縮小 tile）
-// 注意：不可改 h1 font-size，否則 DegreeLine x% 校準會跑掉
 const scaleMultiplier = ref(1.0)
 
 function getMusicianScale() {
