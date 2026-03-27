@@ -17,6 +17,8 @@ hideChords: true
 
 --- 
 
+<div id="shepherd-chorus"/>
+
 ##### [Chorus]
 
 # [5]祢使我抬[6m]起頭 超越[5]一切風[1]浪
@@ -46,3 +48,5 @@ hideChords: true
 # [4]行走在水面[5]上 只不過[1]是開始
 # [1]在眾人面前 [1/3]祢使我興起
 # [4]祢呼召我進[5]入 偉大命[1]定
+
+<JumpToById target="shepherd-chorus">→ Chorus</JumpToById>
