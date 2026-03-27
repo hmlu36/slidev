@@ -16,20 +16,46 @@ function isChordHiddenByFrontmatter(): boolean {
     const currentPage = nav.currentPage as number
     const slides = nav.slides as any[] | undefined
     if (!slides?.length || !currentPage) return false
-    const current = slides[currentPage - 1]
+    
+    const currentIndex = currentPage - 1
+    const current = slides[currentIndex]
     if (!current) return false
-    // 找出同一個來源檔案（source.filepath）的第一張，只需在那張設定 hideChords
-    const getFilepath = (s: any): string | null =>
-      s?.meta?.slide?.filepath ?? s?.source?.filepath ?? s?.filepath ?? null
+
+    const getFilepath = (s: any): string | null => {
+      const path = s?.meta?.slide?.filepath ?? s?.source?.filepath ?? s?.filepath ?? null
+      return path ? path : null
+    }
     const getFrontmatter = (s: any): any =>
       s?.meta?.slide?.frontmatter ?? s?.frontmatter
       
     const currentFilepath = getFilepath(current)
-    const firstOfFile = currentFilepath
-      ? slides.find((s: any) => getFilepath(s) === currentFilepath)
-      : current
-      
-    return getFrontmatter(firstOfFile)?.hideChords === true
+    
+    // 如果有 filepath (開發模式)，直接找同來源的第一張投影片的 frontmatter
+    if (currentFilepath) {
+      const firstOfFile = slides.find((s: any) => getFilepath(s) === currentFilepath) || current
+      return getFrontmatter(firstOfFile)?.hideChords === true
+    } 
+    // 如果沒有 filepath (正式發佈模式，因為安全隱私會被清除)
+    // 我們往回找同一首歌的第一張 (假設都會以 layout: center 或明確有 hideChords 屬性為邊界)
+    else {
+      for (let i = currentIndex; i >= 0; i--) {
+        const s = slides[i]
+        const fm = getFrontmatter(s)
+        
+        // 如果這張投影片有明確設定 hideChords，就採用它的設定
+        if (fm?.hideChords !== undefined) {
+          return fm.hideChords === true
+        }
+        
+        // 如果找到 layout 為 center，通常是那首歌的標題頁 (第一頁)
+        // 既然上面沒有明確設定 hideChords，代表這首歌預設為 false (不隱藏)
+        const layout = fm?.layout || s?.meta?.layout
+        if (layout === 'center') {
+          return false
+        }
+      }
+      return false
+    }
   } catch {
     return false
   }
