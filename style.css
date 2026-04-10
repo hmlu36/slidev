@@ -5,6 +5,7 @@ h1 {
     line-height: 1.2;
     letter-spacing: 3px;
     text-align: center;
+    word-spacing: 0.2em;
 }
 
 h2 {
