@@ -178,7 +178,7 @@ onUnmounted(() => {
 /* 浮動在字首正上方，或者在空格上方 */
 .chord {
   position: absolute;
-  top: -4em; /* 往上推大約一個巨型字體的高度 */
+  top: -3.8em; /* 往上推大約一個巨型字體的高度 */
   left: 1.3em;
   width: 1em; /* 給和弦一個基礎寬度 */
   display: flex;
