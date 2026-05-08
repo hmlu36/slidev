@@ -1,9 +1,11 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # 誰能配得
 # Who Else 
+
 
 ---
 
