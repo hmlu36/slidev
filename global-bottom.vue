@@ -178,7 +178,7 @@ onUnmounted(() => {
 /* 浮動在字首正上方，或者在空格上方 */
 .chord {
   position: absolute;
-  top: -3.8em; /* 往上推大約一個巨型字體的高度 */
+  top: -4em; /* 往上推大約一個巨型字體的高度 */
   left: 1.3em;
   width: 1em; /* 給和弦一個基礎寬度 */
   display: flex;
@@ -186,7 +186,7 @@ onUnmounted(() => {
   transform: translateX(-50%); /* 往回拉一半，確保以字元的起始點為中心 */
   color: #ff9800 !important;
   font-family: 'Cascadia Mono', 'Consolas', 'Courier New', monospace;
-  font-size: 0.32em; /* 相對於 h1 的比例 */
+  font-size: 0.34em; /* 相對於 h1 的比例 */
   font-weight: 600;
   letter-spacing: 0;
   white-space: nowrap;
