@@ -15,7 +15,7 @@ layout: center
 ---
 
 #### [Chorus]
-# 祢[6m]愛不失敗  [4]永不放棄
+# 祢[6m]愛永不變  [4]永不放棄
 # [1]永遠不會[5]離開
 <div style="text-align: right; font-size:36px">X3</div>
 
