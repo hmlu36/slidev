@@ -2,7 +2,7 @@
 layout: center
 ---
 
-# 祢愛不變(約書亞)
+# 祢愛不變
 # One Thing Remains
 
 ---
