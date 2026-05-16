@@ -1,5 +1,6 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # 居所
@@ -50,4 +51,4 @@ layout: center
 ---
 
 #### [Tag]
-# 我只要祢
+# [4]我[1]只[6m]要[5]祢

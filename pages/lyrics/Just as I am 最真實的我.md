@@ -1,5 +1,6 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # Just as I am 
