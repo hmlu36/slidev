@@ -5,35 +5,38 @@ on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4 # 建議對齊官方穩定的 v4，除非你確定 v6 是你自建或特定版本
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+
+      - name: Install dependencies
+        run: nci
 
       - name: Install dependencies
         run: npm install
 
       - name: Install slidev
-        run:  npm i -g @slidev/cli@52.12
+        run: npm i -g @slidev/cli@latest
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
@@ -46,7 +49,6 @@ jobs:
         run: |
           python fonts/toolkit/findUniqueChar.py
           
-          # 檢查文字檔 (如果這裡 cat 出來是空的，字型就會是 1KB)
           echo "Content of unique_chars.txt:"
           cat fonts/toolkit/unique_chars.txt
           
@@ -58,26 +60,25 @@ jobs:
                   --layout-features='' \
                   --output-file=public/CWTEX-K.subset.woff2
           
-          # 確認檔案大小 (如果小於 5KB，代表 subset 失敗)
           ls -lh public/CWTEX-K.subset.woff2
 
       - name: Patch CSS Path
         run: |
-          # 加上開頭斜線 / 確保從網域根部開始尋找
           sed -i "s|url([^)]*CWTEX-K.ttf[^)]*) format([^)]*)|url('/${{github.event.repository.name}}/CWTEX-K.subset.woff2') format('woff2')|g" style.css
+
       - name: Build
         run: |
           echo -e "y\n" | npx slidev build main.md --base /${{github.event.repository.name}}/
+          touch dist/.nojekyll # 重要：繞過 Jekyll 的編譯機制
 
       - name: Setup Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist repository
           path: dist
 
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
