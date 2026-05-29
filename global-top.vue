@@ -106,7 +106,6 @@ onMounted(() => {
 })
 
 watchEffect(() => {
-  document.body.classList.toggle('musician-mode', isMusicianMode.value)
   applyMusicianVars()
 })
 
@@ -115,7 +114,6 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', onDocClick, true)
   window.removeEventListener('resize', applyMusicianVars)
   stopQrObserver()
-  document.body.classList.remove('musician-mode')
   document.documentElement.style.removeProperty('--musician-scale')
 })
 </script>

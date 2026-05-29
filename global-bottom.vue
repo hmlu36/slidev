@@ -192,14 +192,6 @@ onUnmounted(() => {
   white-space: nowrap;
 }
 
-/* 樂手模式縮放修正 */
-body.musician-mode .chord {
-  font-size: 0.65em !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  top: -2.1em; /* 往上推大約一個巨型字體的高度 */
-  left: 0.8em;
-}
-
 /* 以 frontmatter 控制暫時隱藏和弦 */
 body.hide-chords .chord,
 .slidev-layout.hide-chords .chord {
