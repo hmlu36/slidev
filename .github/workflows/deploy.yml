@@ -72,14 +72,14 @@ jobs:
           echo -e "y\n" | npx slidev build main.md --base /${{github.event.repository.name}}/
 
       - name: Setup Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload dist repository
           path: dist
 
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
