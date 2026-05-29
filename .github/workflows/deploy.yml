@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      
     permissions:
       contents: read
       pages: write
@@ -17,7 +20,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4 # 建議對齊官方穩定的 v4，除非你確定 v6 是你自建或特定版本
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
