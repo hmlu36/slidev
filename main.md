@@ -30,9 +30,9 @@ favicon: '/images/favicon.png'
 # background: '/images/beautiful-nature-of-white-sandy-beach-and-ocean-in-tropical.webp'
 ---
 
- # 2026/07/10
+ # 2026/07/24
  # 小組敬拜
 
 ---
-src: ./pages/2026/20260710.md
+src: ./pages/2026/20260724.md
 ---
