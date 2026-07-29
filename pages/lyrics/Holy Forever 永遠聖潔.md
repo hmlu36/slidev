@@ -17,29 +17,11 @@ layout: center
 
 </div>
 
-<JumpToById target="holy-forever-pre-chorus1">→ Pre Chorus 1</JumpToById>
-
----
-
-<div id="holy-forever-verse2"/>
-
-#### [Verse 2-1]
-# 我已被祢赦免 我已被祢贖回
-# 永遠宣揚稱頌 神羔羊
-
-
----
-
-#### [Verse 2-2]
-# 我已得著自由 奉靠耶穌之名
-# 永遠宣揚稱頌 神羔羊
-# 永遠宣揚稱頌 敬拜祢 阿們
-
 ---
 
 <div id="holy-forever-pre-chorus1"/>
 
-#### [Pre Chorus 1]
+#### [Pre Chorus]
 # 祢名 高過穹蒼
 # 祢名 何等偉大
 # 祢名 超乎萬名之上
@@ -47,14 +29,13 @@ layout: center
 
 ---
 
-#### [Pre Chorus 2]
 # 所有 寶座冠冕
 # 所有 能力權柄
 # 祢名 超乎萬名之上
 
 ---
 
-#### [Chorus 1] 
+#### [Chorus] 
 # 眾天使呼喊 聖潔
 # 萬口要敬拜 聖潔
 # 我們高舉祢 聖潔
@@ -62,11 +43,23 @@ layout: center
 
 ---
 
-#### [Chorus 2]
 # 神兒女歌唱 聖潔
 # 全地的君王 聖潔
 # 祢永不改變 聖潔
 # 聖潔到永遠
  
 <JumpToById target="holy-forever-verse1">→ Verse 1</JumpToById>
-<JumpToById target="holy-forever-verse2">→ Verse 2</JumpToById>
+
+
+---
+
+<div id="holy-forever-verse2"/>
+
+#### [Verse 2]
+# 我已被祢赦免 我已被祢贖回
+# 永遠宣揚稱頌 神羔羊
+# 我已得著自由 奉靠耶穌之名
+# 永遠宣揚稱頌 神羔羊
+# 永遠宣揚稱頌 敬拜祢 阿們
+
+<JumpToById target="holy-forever-pre-chorus1">→ Pre Chorus</JumpToById>
