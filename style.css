@@ -37,7 +37,7 @@ h4 {
 
 @font-face {
     font-family: 'CWTEX-K';
-    src: url('./fonts/toolkit/CWTEX-K.ttf') format('truetype');
+    src: url('./fonts/CWTEX-K.ttf') format('truetype');
     font-display: swap;
 }
 

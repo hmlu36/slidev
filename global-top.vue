@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, computed, watchEffect, ref } from 'vue'
-import { useQrImages } from './src/composables/useQr'
+import { useQrImages } from './src/useQr'
 
 const isLyricSlide = computed(() => {
   return $slidev.nav.currentRoute?.path?.includes('lyrics')

@@ -21,7 +21,7 @@
 - **Linux/Mac**: 執行 `./setup_env.sh`
 
 ### 2. 進入 Python 虛擬環境 (開發者/進階操作用)
-如果需要手動執行其他的 Python 腳本 (如 `fonts/toolkit` 底下的工具)：
+如果需要手動執行其他的 Python 腳本 (如 `scripts` 底下的工具)：
 - **Windows**: 執行 `start_env.bat`
 - **Linux/Mac**: 執行 `./start_env.sh`
 
@@ -35,24 +35,26 @@
 ├── package.json  
 ├── main.md                 # 首頁入口
 ├── components/             # Vue 自訂元件
-├── pages/  
-│   ├── 年份/                 # 當週投影片，以 yyyyMMdd.md 命名
-│   │   ├── 20231006.md  
-│   │   └── ...  
-│   └── lyrics/             # 獨立的歌詞檔
-│       ├── 以馬內利.md  
-│       └── ...  
+├── pages/                  # 當週投影片，以 yyyyMMdd.md 命名
+│   ├── 2023/ … 2026/
+│   └── 20260814.md
+├── lyrics/                 # 獨立的歌詞檔
+│   ├── 以馬內利.md  
+│   └── ...  
+├── messages/               # 講道訊息
+├── scripts/                # 工具腳本（new-week.js、字型子集化…）
+├── fonts/                  # 字型檔
 └── public/
     └── images/             # 背景圖存放處
 ```
 
 ### 投影片建立與引用
 1. 主頁面固定從 `main.md` 進入。
-2. 共用的歌詞檔統一放在 `pages/lyrics/` 底下。
+2. 共用的歌詞檔統一放在 `lyrics/` 底下。
 3. 當週投影片放在 `pages/{年份}/` 底下，直接透過 YAML 中的 `src` 引用歌詞：
    ```yaml
    ---
-   src: ../lyrics/以馬內利.md
+   src: ../../lyrics/以馬內利.md
    ---
    ```
 
@@ -71,7 +73,7 @@
   ```bash
   npm run new-week
   ```
-- **指定歌曲建立**：可直接帶入歌名，腳本會自動去 `pages/lyrics/` 尋找對應的檔案：
+- **指定歌曲建立**：可直接帶入歌名，腳本會自動去 `lyrics/` 尋找對應的檔案：
   ```bash
   npm run new-week "永活盼望" "我要愛慕祢" "祢是我的一切"
   ```
@@ -99,7 +101,7 @@
 
 ### 3. 字體處理與背景圖壓縮
 - **字體壓縮 (已自動化)**：系統由 Github Actions 自動執行 Python 腳本抓取出使用到的不重複中文字，並根據 `unique-chars.txt` 篩選產生子集字體檔 (`woff2`)，大幅減少載入體積。
-- **背景圖處理**：背景圖放置於 `public/images`。推薦使用內部腳本 `image2webp.py` 將圖片轉為 WebP 格式以減少空間佔用 (須安裝套件：`pip install Pillow`)。
+- **背景圖處理**：背景圖放置於 `public/images`。推薦使用內部腳本 `scripts/image2webp.py` 將圖片轉為 WebP 格式以減少空間佔用 (須安裝套件：`pip install Pillow`)。
 
 ---
 
@@ -137,5 +139,14 @@ Slidev 會自動載入 `components/` 目錄中的元件，直接在 Markdown 中
   <!-- 或 -->
   <h1 id="verse2">...</h1>
   ```
+
+### 3. WeekDate（自動日期）
+- **作用**：從 `main.md` 的 `src` 引入檔名（如 `pages/2026/20260814.md`）自動組出 `2026/08/14`，取代手寫日期。
+- **使用方式**（放在 `main.md` 標題處）：
+  ```markdown
+  <WeekDate />
+  # 小組敬拜
+  ```
+  *(元件會渲染成 `<h1>`，與底下標題字體一致；`npm run new-week` 更新 `src` 後日期會自動跟著變。)*
 
 

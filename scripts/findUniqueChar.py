@@ -21,7 +21,7 @@ import re
 
 # 1. 設定入口檔案與輸出路徑
 ENTRY_FILE = 'main.md' 
-OUTPUT_PATH = 'fonts/toolkit/unique_chars.txt'
+OUTPUT_PATH = 'scripts/unique_chars.txt'
 
 # 2. 定義 Slidev 引用語法的正則表達式
 SRC_PATTERN = re.compile(r'^src:\s*(.+?\.md)', re.MULTILINE)

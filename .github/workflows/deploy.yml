@@ -50,13 +50,13 @@ jobs:
 
       - name: Generate fonts (BEFORE BUILD)
         run: |
-          python fonts/toolkit/findUniqueChar.py
+          python scripts/findUniqueChar.py
           
           echo "Content of unique_chars.txt:"
-          cat fonts/toolkit/unique_chars.txt
+          cat scripts/unique_chars.txt
           
-          pyftsubset fonts/toolkit/CWTEX-K.ttf \
-                  --text-file=fonts/toolkit/unique_chars.txt \
+          pyftsubset fonts/CWTEX-K.ttf \
+                  --text-file=scripts/unique_chars.txt \
                   --flavor=woff2 \
                   --no-hinting \
                   --desubroutinize \

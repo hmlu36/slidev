@@ -21,14 +21,13 @@ const year = nextFriday.getFullYear();
 const month = String(nextFriday.getMonth() + 1).padStart(2, '0');
 const day = String(nextFriday.getDate()).padStart(2, '0');
 const dateStr = `${year}${month}${day}`;
-const slashDate = `${year}/${month}/${day}`;
 
 const targetDir = path.join(__dirname, '..', 'pages', String(year));
 const targetFile = path.join(targetDir, `${dateStr}.md`);
 const mainFile = path.join(__dirname, '..', 'main.md');
 
 const args = process.argv.slice(2);
-const lyricsDir = path.join(__dirname, '..', 'pages', 'lyrics');
+const lyricsDir = path.join(__dirname, '..', 'lyrics');
 
 console.log(`Targeting: ${targetFile}`);
 
@@ -77,7 +76,7 @@ if (fs.existsSync(targetFile)) {
             if (fs.existsSync(possiblePath)) {
                 console.log(`[FOUND] Lyric file: ${fileName}`);
                 slidesContent += `---
-src: ../lyrics/${fileName}
+src: ../../lyrics/${fileName}
 ---
 `;
             } else {
@@ -98,20 +97,20 @@ src: ../lyrics/${fileName}
                         const selectedFile = suggestions[selectionIndex];
                         console.log(`    => Using: ${selectedFile}`);
                         slidesContent += `---
-src: ../lyrics/${selectedFile}
+src: ../../lyrics/${selectedFile}
 ---
 `;
                     } else {
                         console.log(`    => Keeping original: ${fileName}`);
                         slidesContent += `---
-src: ../lyrics/${fileName}
+src: ../../lyrics/${fileName}
 ---
 `;
                     }
                 } else {
                     console.log(`    No partial matches found. Using original.`);
                     slidesContent += `---
-src: ../lyrics/${fileName}
+src: ../../lyrics/${fileName}
 ---
 `;
                 }
@@ -140,11 +139,6 @@ function updateMainFile() {
 
     if (srcRegex.test(mainContent)) {
         mainContent = mainContent.replace(srcRegex, newSrcLine);
-
-        const dateCommentRegex = /^ # \d{4}\/\d{2}\/\d{2}$/m;
-        if (dateCommentRegex.test(mainContent)) {
-            mainContent = mainContent.replace(dateCommentRegex, ` # ${slashDate}`);
-        }
 
         fs.writeFileSync(mainFile, mainContent);
         console.log(`Updated main.md to point to ${dateStr}.md`);
