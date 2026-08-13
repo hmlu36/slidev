@@ -9,7 +9,7 @@ import { computed } from 'vue'
 import mainRaw from '../main.md?raw'
 
 const dateText = computed(() => {
-  const m = mainRaw.match(/^src:\s*(.+?\.md)/m)
+  const m = mainRaw.match(/^src:\s*([^\s]+\.md)/m)
   if (!m) return ''
   const dm = m[1].match(/(\d{4})(\d{2})(\d{2})\.md$/)
   return dm ? `${dm[1]}/${dm[2]}/${dm[3]}` : ''
