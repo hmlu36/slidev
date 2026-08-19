@@ -1,5 +1,6 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # 居所
