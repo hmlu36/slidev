@@ -80,3 +80,38 @@ h4 {
 .custom-line-height {
   line-height: 1.5 !important;
 }
+
+/* 經文引用區塊字級 */
+blockquote {
+  font-size: inherit !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+blockquote p {
+  font-size: inherit !important;
+}
+
+/* ===== 場景主題 ===== */
+
+.warm-scene {
+  background-color: #F5F5EF !important;
+  color: #2A2E26 !important;
+}
+
+.heavy-scene .fade,
+.night-scene .fade {
+  color: #C7C2CE !important;
+}
+
+.night-scene {
+  background-color: #1B2233 !important;
+  color: #F0EEE4 !important;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 140px 140px, 90px 90px, 60px 60px;
+  background-position: 0 0, 30px 45px, 70px 20px;
+}
