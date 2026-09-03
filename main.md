@@ -34,5 +34,5 @@ favicon: '/images/favicon.png'
  # 小組敬拜
 
 ---
-src: ./pages/2026/20260828.md
+src: ./pages/2026/20260904.md
 ---

@@ -19,7 +19,7 @@ layout: center
 
 #### [Pre-Chorus]
 # 天使高聲齊頌揚
-# 萬物都屈膝來敬拜你
+# 萬物都屈膝來敬拜祢
 
 ---
 
@@ -30,15 +30,18 @@ layout: center
 # 耶穌我主 超乎萬名之上 耶穌
 
 <JumpToById target="beautiful-savior-verse">→ Verse</JumpToById>
+<JumpToById target="beautiful-savior-tag">→ Tag</JumpToById>
 
 ---
 
 #### [Bridge]
 # 我要永遠敬拜
-# 耶穌我愛你 耶穌我愛你
+# 耶穌我愛祢 耶穌我愛祢
 
 
 ---
+
+<div id="beautiful-savior-tag"></div>
 
 #### [Tag]
 # 耶穌 榮美的救主
