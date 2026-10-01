@@ -11,3 +11,4 @@ components.d.ts
 *.pdf
 
 venv
+.opencode
