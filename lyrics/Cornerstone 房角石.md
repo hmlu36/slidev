@@ -1,5 +1,6 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # Cornerstone 
@@ -27,7 +28,7 @@ layout: center
 # [1]黑夜來臨 遮蔽榮面
 # [4]安息在主 恩典[5]不變
 # [6m]每次經歷 [3m]狂風暴雨
-# [4]我避難所 在主裡[1]面 X2
+# [4]我避難所 在主裡[1]面
 
 ---
 

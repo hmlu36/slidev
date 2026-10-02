@@ -1,5 +1,6 @@
 ---
 layout: center
+hideChords: true
 ---
 
 # 配得全所有
