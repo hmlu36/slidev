@@ -31,7 +31,6 @@ favicon: '/images/favicon.png'
 ---
 
  <WeekDate />
- # 小組敬拜
 
 ---
 src: ./pages/2026/20261018.md

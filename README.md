@@ -1,152 +1,99 @@
-# hmlu36 slidev
+# hmlu36 slidev（敬拜投影片工具）
 
-網址: [https://hmlu36.github.io/slidev/](https://hmlu36.github.io/slidev/)
+🌐 線上播放：<https://hmlu36.github.io/slidev/>
 
-## 📖 專案簡介 (Introduction)
+用 Markdown 寫歌詞，[Slidev](https://sli.dev/) 自動變成敬拜投影片；push 到 GitHub 後自動部署上線。
 
-**投影片小程式緣起：**
-1. 希望可以快速生成投影片，方便小組敬拜使用，減少帶領者的負擔。
-2. 採用 [Slidev (Vue 套件)](https://sli.dev/)，讀取 Markdown 檔，產生投影片。
-3. 為了精簡字體大小，採用 Python 套件，儘可能壓縮字體檔。
-   - *（如果不想做字型處理，在執行 `npm run dev` 時可加入參數 `--no-predev`）*
-4. 將轉換後的字型檔，存成 `woff2` 格式 (大小約少一半)。
+播放快捷鍵：`→`/`空白鍵` 下一頁｜`←` 上一頁｜`F` 全螢幕｜`O` 總覽｜`D` 深色｜`?` 全部快捷鍵
 
 ---
 
-## 🚀 快速開始 (Quick Start)
+## 🤖 用 AI 準備投影片（推薦，不用會寫程式）
 
-### 1. 安裝與設定 Python 環境 (僅第一次需要)
-為了支援字體處理及未來的擴充功能，請先設定 Python 虛擬環境：
-- **Windows**: 執行 `setup_env.bat`
-- **Linux/Mac**: 執行 `./setup_env.sh`
+用 AI 工具（opencode、Claude Code、Cursor…）打開這個資料夾，直接用中文說要做什麼：
 
-### 2. 進入 Python 虛擬環境 (開發者/進階操作用)
-如果需要手動執行其他的 Python 腳本 (如 `scripts` 底下的工具)：
-- **Windows**: 執行 `start_env.bat`
-- **Linux/Mac**: 執行 `./start_env.sh`
+| 想做的事 | 對 AI 說 |
+| --- | --- |
+| 建立下週投影片 | 「建立下週投影片」 |
+| 指定詩歌建立 | 「建立下週投影片，詩歌：永活盼望、我要愛慕祢」 |
+| 換本週歌單 | 「把本週歌單換成 `lyrics/願.md`、`lyrics/點燃.md`」 |
+| 新增一首歌 | 「把這首歌存成 `lyrics/歌名.md`」（附上歌詞） |
+| 找一首歌 | 「找 `lyrics/` 裡有沒有『盼望』相關的歌」 |
+| 預覽／上線 | 「啟動預覽」／「幫我部署」 |
+
+> **opencode 使用者**：直接輸入 `/new-week` 即可建立下週投影片，可加歌名：`/new-week 永活盼望 我要愛慕祢`。
+
+小技巧：一次講一件事、附上歌名或檔案路徑；請 AI 先預覽再發布。
 
 ---
 
-## 📁 目錄結構與基礎使用 (Usage)
+## 📅 每週流程
 
-### 目錄結構
-```text
-. (repository root)  
-├── package.json  
-├── main.md                 # 首頁入口
-├── components/             # Vue 自訂元件
-├── pages/                  # 當週投影片，以 yyyyMMdd.md 命名
-│   ├── 2023/ … 2026/
-│   └── 20260814.md
-├── lyrics/                 # 獨立的歌詞檔
-│   ├── 以馬內利.md  
-│   └── ...  
-├── messages/               # 講道訊息
-├── scripts/                # 工具腳本（new-week.js、字型子集化…）
-├── fonts/                  # 字型檔
-└── public/
-    └── images/             # 背景圖存放處
-```
-
-### 投影片建立與引用
-1. 主頁面固定從 `main.md` 進入。
-2. 共用的歌詞檔統一放在 `lyrics/` 底下。
-3. 當週投影片放在 `pages/{年份}/` 底下，直接透過 YAML 中的 `src` 引用歌詞：
+1. **建立**：`npm run new-week`（自動取下一個週五，建立 `pages/{年份}/YYYYMMDD.md` 並更新 `main.md`）
+   - 可指定詩歌、支援關鍵字模糊比對：`npm run new-week "永活盼望" "我要愛慕祢"`
+2. **編輯歌單**：編輯該檔，每首詩歌一段：
    ```yaml
    ---
-   src: ../../lyrics/以馬內利.md
+   src: ../../lyrics/稱頌主.md
    ---
    ```
+3. **預覽 → 上線**：`npm run dev` 確認 → 雙擊 `deploy.bat`（或 `git push`，GitHub Actions 會自動部署）
 
-### 樂手樂譜模式 (Musician Mode)
-若要給樂手使用單頁樂譜模式，可在該歌詞頁網址結尾加上 `/musician`（例如 `.../lyrics/歌名/musician`），即可切換成固定雙欄的單頁捲動。
-- 該模式會依視窗大小做 RWD 縮放，盡量維持原始排版比例，避免和弦偏移，並且**自動忽略**第一頁的主題封面內容。
-
----
-
-## ⚙️ 核心功能與工具 (Features & Tools)
-
-### 1. 自動化每週投影片建立 (New Week Automation)
-提供自動化腳本，自動計算下一個週五的日期，產生當週 Markdown 檔並自動更新 `main.md`。
-
-- **快速建立 (使用預設歌曲)**：
-  ```bash
-  npm run new-week
-  ```
-- **指定歌曲建立**：可直接帶入歌名，腳本會自動去 `lyrics/` 尋找對應的檔案：
-  ```bash
-  npm run new-week "永活盼望" "我要愛慕祢" "祢是我的一切"
-  ```
-- **互動式搜尋 (模糊比對)**：如不確定完整歌名，輸入關鍵字即可。如果找到多個部分匹配結果，腳本會顯示清單詢問您要使用哪一首。
-  ```bash
-  npm run new-week "Center"
-  ```
-  *(輸出範例：將列出 Center 中心.md、Jesus at the Center... 供選擇)*
-
-### 2. 和弦標示與隱藏
-本專案支援自動轉換 Markdown 中的和弦標記，方便隨時切換純歌詞投影片與有和弦的樂譜模式。
-
-- **標示和弦**：在 `.md` 檔案內的歌詞標題 (`#`) 段落中，直接使用中括號 `[和弦]` 寫在字詞前面或中間，系統渲染時會將其自動轉換並懸浮於歌詞上方。
-  ```markdown
-  # [1]當我等候 [1/3]在過程中
-  # [4]祢向我唱出[5]愛的旋[1]律
-  ```
-- **全域隱藏和弦**：若特定場合不需要顯示和弦，可在該首詩歌最前方的 YAML Frontmatter 區塊中加入 `hideChords: true` 即可完全隱藏所有和弦。
-  ```yaml
-  ---
-  layout: center
-  hideChords: true
-  ---
-  ```
-
-### 3. 字體處理與背景圖壓縮
-- **字體壓縮 (已自動化)**：系統由 Github Actions 自動執行 Python 腳本抓取出使用到的不重複中文字，並根據 `unique-chars.txt` 篩選產生子集字體檔 (`woff2`)，大幅減少載入體積。
-- **背景圖處理**：背景圖放置於 `public/images`。推薦使用內部腳本 `scripts/image2webp.py` 將圖片轉為 WebP 格式以減少空間佔用 (須安裝套件：`pip install Pillow`)。
+首頁 `main.md` 的 `src` 指到本週檔案即可；日期與「主日敬拜／小組敬拜」標題由 `<WeekDate />` 自動判斷，不用手改。
 
 ---
 
-## 🧩 自訂元件說明 (Components)
+## 📝 編輯說明
 
-Slidev 會自動載入 `components/` 目錄中的元件，直接在 Markdown 中呼叫標籤即可。
+**歌詞檔 `lyrics/歌名.md`**
+- 每頁一行 `# 歌詞`，頁與頁之間用 `---` 分隔。
+- 和弦：寫在字詞前，如 `# [1]當我等候 [1/3]在過程中`，自動懸浮在歌詞上方。
+- 隱藏全部和弦：frontmatter 加 `hideChords: true`。
+- 樂手模式：該頁網址結尾加 `/musician`，變固定雙欄單頁捲動（自動忽略封面頁）。
 
-### 1. BilingualBlock（雙語區塊）
-- **作用**：將中英雙語歌詞自動置中，並維持一致的排版，減少手動加上 HTML `<div>` 的繁瑣。
-- **使用方式**：
-  ```markdown
-  <BilingualBlock>
-  # 祢是我依靠的力量
-  ## You are my strength when I am weak
-  </BilingualBlock>
-  ```
-  *(註：若只需要將單行內的少部分英文縮小，也可以使用 `<span class="spacing-0">英文</span>` 來幫助排版。)*
+**常用元件**（Slidev 自動載入 `components/`）
+- `<BilingualBlock>`：中英雙語自動置中、一致排版。
+- `<JumpToById target="bridge1" align="left">→ Bridge</JumpToById>`：跳轉按鈕；目標用 `<div id="bridge1"/>` 設定。
+- `<WeekDate />`：自動顯示日期與敬拜類型。
 
-### 2. JumpToById（跳轉按鈕）
-- **作用**：點擊後自動平滑滾動到指定 ID 的 DOM 元素。若目標 ID 不在當前視圖，元件會自動在被編譯好的所有分頁中尋找並跳轉到目標。
-- **屬性 (Props)**：
-  - `target` *(必填)*：目標元素的 HTML ID。
-  - `align` *(選填)*：行內對齊方式，`left` 或 `right` (預設為右側 `right`)。
-- **使用方式**：
-  ```markdown
-  <!-- 放一個向右對齊的跳轉按鈕 -->
-  <JumpToById target="bridge1">→ 跳至 Bridge</JumpToById>
-  
-  <!-- 放一個向左對齊的跳轉按鈕 -->
-  <JumpToById target="verse2" align="left">→ Verse 2</JumpToById>
-  ```
-  **如何設定目標錨點：** 在任何位置加入帶有 ID 的標籤即可。
-  ```markdown
-  <div id="bridge1"/>  
-  <!-- 或 -->
-  <h1 id="verse2">...</h1>
-  ```
+---
 
-### 3. WeekDate（自動日期）
-- **作用**：從 `main.md` 的 `src` 引入檔名（如 `pages/2026/20260814.md`）自動組出 `2026/08/14`，取代手寫日期。
-- **使用方式**（放在 `main.md` 標題處）：
-  ```markdown
-  <WeekDate />
-  # 小組敬拜
-  ```
-  *(元件會渲染成 `<h1>`，與底下標題字體一致；`npm run new-week` 更新 `src` 後日期會自動跟著變。)*
+## 📁 目錄結構
 
+```text
+├── main.md                  # 首頁入口（指到本週 pages 檔）
+├── pages/{年份}/YYYYMMDD.md # 每週投影片（當週歌單）
+├── lyrics/                  # 歌詞庫（一首歌一檔）
+├── messages/                # 訊息、活動頁
+├── components/              # 自訂元件
+├── scripts/                 # new-week.js、字型／圖片工具
+├── public/images/           # 背景圖與圖片
+├── deploy.bat               # 一鍵部署（Windows）
+└── .github/workflows/       # 自動部署設定
+```
 
+---
+
+## ⚙️ 本機安裝與指令（改版面、寫程式才需要）
+
+```bash
+npm install   # 第一次
+npm run dev   # 本機預覽（自動開瀏覽器）
+```
+
+| 指令 | 說明 |
+| --- | --- |
+| `npm run build` | 產生靜態網頁到 `dist/` |
+| `npm run export` | 匯出 PDF |
+| `npm run new-week` | 建立下一週投影片 |
+
+- **字型**：push 後 GitHub Actions 自動產生子集字型（`scripts/findUniqueChar.py`），本機不用處理。
+- **背景圖**：放 `public/images/`；可用 `scripts/image2webp.py` 轉 WebP（需 Pillow）。
+- **Python 環境（選用，僅工具腳本）**：`setup_env.bat` 建立、`start_env.bat` 進入；或 `pip install -r scripts/requirements.txt`。
+- **部署**：push `main` 後由 `.github/workflows/deploy.yml` 自動部署到 GitHub Pages（也可在 Actions 頁手動執行）。
+
+---
+
+## 🔗 教會歌詞來源
+
+https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSPiQPz6gSvt_counl4xx45mDsrLBIr7bbu_mInxjW7nmQngHNeV-OZsUx1AbY_YrYfJvxh1wOiQ9TNYfRvJULYx5AY1vb2nP3g5LzmrvBd8q8dBs-ZHGguCF-fcSuyLkw7NV1SgV79CkaiFIUatrb1-5HnYGp7RJAZUw4DvRx0bG7PducJEVYc2RcwKvEfLEm23azCLobrotITXnLVHNlRM2yUuJHQfxfpi9vVvJVi0uw_I048YIyon_Ql4yRxKBr9K91GmVHmGpYO4Obd_X0p1s8RtolRb1mJ90JE&lib=MtQh7qhGdnyDsPwgekirHl_AgPg7T2ed9
