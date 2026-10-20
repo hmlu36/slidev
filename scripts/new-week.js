@@ -63,7 +63,11 @@ if (fs.existsSync(targetFile)) {
     const askQuestion = (query) => new Promise(resolve => rl.question(query, resolve));
 
     const processSongs = async () => {
-        let slidesContent = '';
+        const blocks = [];
+        // 每首歌一個區塊，區塊之間空一行，與 pages/2025/20251031.md 格式一致
+        const addBlock = (fileName) => {
+            blocks.push(`---\r\nsrc: ../../lyrics/${fileName}\r\n---`);
+        };
 
         for (const songName of songs) {
             let fileName = songName;
@@ -75,10 +79,7 @@ if (fs.existsSync(targetFile)) {
 
             if (fs.existsSync(possiblePath)) {
                 console.log(`[FOUND] Lyric file: ${fileName}`);
-                slidesContent += `---
-src: ../../lyrics/${fileName}
----
-`;
+                addBlock(fileName);
             } else {
                 console.log(`[NOT FOUND] Lyric file: ${fileName}`);
 
@@ -96,30 +97,21 @@ src: ../../lyrics/${fileName}
                     if (!isNaN(selectionIndex) && selectionIndex >= 0 && selectionIndex < suggestions.length) {
                         const selectedFile = suggestions[selectionIndex];
                         console.log(`    => Using: ${selectedFile}`);
-                        slidesContent += `---
-src: ../../lyrics/${selectedFile}
----
-`;
+                        addBlock(selectedFile);
                     } else {
                         console.log(`    => Keeping original: ${fileName}`);
-                        slidesContent += `---
-src: ../../lyrics/${fileName}
----
-`;
+                        addBlock(fileName);
                     }
                 } else {
                     console.log(`    No partial matches found. Using original.`);
-                    slidesContent += `---
-src: ../../lyrics/${fileName}
----
-`;
+                    addBlock(fileName);
                 }
             }
         }
 
         rl.close();
 
-        const content = `${slidesContent}`;
+        const content = blocks.join('\r\n\r\n');
         fs.writeFileSync(targetFile, content);
         console.log(`Created ${targetFile}`);
     };

@@ -31,10 +31,14 @@
 
 1. **建立**：`npm run new-week`（自動取下一個週五，建立 `pages/{年份}/YYYYMMDD.md` 並更新 `main.md`）
    - 可指定詩歌、支援關鍵字模糊比對：`npm run new-week "永活盼望" "我要愛慕祢"`
-2. **編輯歌單**：編輯該檔，每首詩歌一段：
+2. **編輯歌單**：編輯該檔，每首詩歌一段，段落之間空一行：
    ```yaml
    ---
    src: ../../lyrics/稱頌主.md
+   ---
+
+   ---
+   src: ../../lyrics/我要愛慕祢.md
    ---
    ```
 3. **預覽 → 上線**：`npm run dev` 確認 → 雙擊 `deploy.bat`（或 `git push`，GitHub Actions 會自動部署）
