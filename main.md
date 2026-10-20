@@ -33,5 +33,5 @@ favicon: '/images/favicon.png'
  <WeekDate />
 
 ---
-src: ./pages/2026/20261018.md
+src: ./pages/2026/20261023.md
 ---
