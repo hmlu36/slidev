@@ -1,3 +1,5 @@
+@import './messages/message-style.css';
+
 h1 {
     font-size: 3.3em !important;
     margin-top: 40px;
@@ -35,10 +37,19 @@ h4 {
 */
 
 
+/* 中文標點：用加寬字距的同款字型，靠 unicode-range 分流 */
+@font-face {
+    font-family: 'CWTEX-K';
+    src: url('./fonts/CWTEX-K-punct.woff2') format('woff2');
+    font-display: swap;
+    unicode-range: U+3001-3002, U+300A-300F, U+FF01, U+FF08-FF09, U+FF0C, U+FF1A-FF1B, U+FF1F, U+FF3B, U+FF3D;
+}
+
 @font-face {
     font-family: 'CWTEX-K';
     src: url('./fonts/CWTEX-K.ttf') format('truetype');
     font-display: swap;
+    unicode-range: U+0-3000, U+3003-3009, U+3010-FF00, U+FF02-FF07, U+FF0A-FF0B, U+FF0D-FF19, U+FF1C-FF1E, U+FF20-FF3A, U+FF3C, U+FF3E-FFFF;
 }
 
 .taigi-lyrics h4,
@@ -91,6 +102,21 @@ blockquote {
 
 blockquote p {
   font-size: inherit !important;
+}
+
+/* 訊息頁表格：放大字級、縮小儲存格留白 */
+table {
+  font-size: 1.25em !important;
+  line-height: 1.3;
+}
+
+td,
+th {
+  padding: 0.3em 0.5em !important;
+}
+
+th {
+  text-align: center !important;
 }
 
 /* ===== 場景主題 ===== */

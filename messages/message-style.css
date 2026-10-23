@@ -1,0 +1,98 @@
+/* 只對「class: message」的投影片生效，不會影響其他頁面或其他簡報 */
+.slidev-layout.message {
+  --message-teal: #2f5d62; --message-teal2: #5c7c80; --message-mint: #dcebe8; --message-amber: #e0a93b; --message-ink: #1f2d2e;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: var(--message-ink); font-size: 1.15rem; line-height: 1.7; padding: 2.4rem 4rem;
+}
+.slidev-layout.message h1, .slidev-layout.message h2 { color: var(--message-teal); font-weight: 800; margin-bottom: 1rem; }
+.slidev-layout.message h1 { font-size: 2rem; }
+.slidev-layout.message h3 { color: var(--message-teal2); font-weight: 500; font-size: 1.1rem; }
+.slidev-layout.message strong, .slidev-layout.message b { color: var(--message-teal); }
+.slidev-layout.message li::marker { color: var(--message-amber); }
+
+.slidev-layout.message blockquote {
+  background: var(--message-mint); border-left: 6px solid var(--message-amber); border-radius: 0 8px 8px 0;
+  color: var(--message-teal); font-weight: 700; padding: .4rem 1rem; margin: 1rem 0;
+}
+.slidev-layout.message blockquote p { margin: .3rem 0; }
+.slidev-layout.message img { display: block; margin-left: auto; margin-right: auto; }
+
+.slidev-layout.message table { border-collapse: collapse; width: 100%; font-size: 1rem; margin: .8rem 0; }
+.slidev-layout.message th { background: var(--message-teal); color: #fff; }
+.slidev-layout.message th, .slidev-layout.message td { border: 1px solid #a9c5c1; padding: .4rem .8rem; text-align: left; }
+
+/* 標題頁 */
+.slidev-layout.message.message-title {
+  display: flex; flex-direction: column; justify-content: center; text-align: left; background-color: var(--message-teal);
+  background-image: radial-gradient(circle at 770px 276px,
+    var(--message-amber) 0 26px, transparent 27px 66px, #5c7c80 67px 69px, transparent 70px 130px,
+    #7fa8a3 131px 133px, transparent 134px 200px, #a9c5c1 201px 203px, transparent 204px);
+}
+.slidev-layout.message.message-title h1 { color: #fff; font-size: 3rem; margin-bottom: .3rem; }
+.slidev-layout.message.message-title h3 { color: #a9c5c1; font-size: 1.3rem; }
+
+/* 深色頁 */
+.slidev-layout.message.message-dark { background: var(--message-teal); color: #fff; }
+.slidev-layout.message.message-dark h1, .slidev-layout.message.message-dark h2 { color: #fff; }
+.slidev-layout.message.message-dark h3 { color: #fff; font-size: 1.5rem; font-weight: 700; }
+.slidev-layout.message.message-dark p { color: #a9c5c1; }
+.slidev-layout.message.message-dark strong, .slidev-layout.message.message-dark b { color: var(--message-amber); }
+.slidev-layout.message.message-dark blockquote { background: none; border: 0; color: var(--message-amber); padding: 0; }
+.message .message-bar { border-left: 6px solid var(--message-amber); padding-left: 1rem; margin: .9rem 0; font-weight: 700; }
+.message .message-bar span { display: block; font-weight: 400; color: #a9c5c1; }
+
+/* 卡片 */
+.message .message-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 1rem; }
+.message .message-cards.message-four { grid-template-columns: repeat(4, 1fr); }
+.message .message-card { background: var(--message-mint); border-radius: 12px; padding: 1.1rem 1.2rem; color: var(--message-teal); font-weight: 700; position: relative; }
+.message .message-card.message-big { display: flex; align-items: center; justify-content: center; min-height: 150px; font-size: 1.7rem; font-weight: 800; }
+.message .message-num { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--message-teal); color: #fff; margin-bottom: .8rem; }
+.message .message-card small { display: block; font-weight: 500; color: var(--message-teal2); font-size: .95rem; }
+.message .message-big-word { display: block; font-size: 2rem; font-weight: 800; text-align: center; }
+.message .message-card.message-plain { color: var(--message-ink); font-weight: 500; }
+.message .message-card.message-plain b { display: block; font-size: 1.2rem; margin-bottom: .2rem; }
+.message.message-dark .message-card { background: var(--message-teal2); color: #fff; padding: .8rem 1rem; font-size: 1rem; }
+.message .message-cards.message-flow { gap: 3rem; }
+.message .message-cards.message-flow .message-card:not(:last-child)::after { content: "➜"; position: absolute; right: -2.2rem; top: 45%; color: #7fa8a3; }
+
+/* 步驟 */
+.message .message-steps { list-style: none; padding: 0; counter-reset: s; margin-top: 1rem; }
+.message .message-steps li { counter-increment: s; position: relative; padding-left: 3.4rem; min-height: 2.6rem; margin: .5rem 0; display: flex; align-items: center; }
+.message .message-steps li::before { content: counter(s); position: absolute; left: 0; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--message-teal); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+/* 連結第九章 */
+.message .message-link { background: var(--message-mint); border-left: 6px solid var(--message-amber); border-radius: 0 8px 8px 0; padding: .6rem 1rem; margin-top: 1.4rem; color: var(--message-ink); }
+.message .message-link b { color: var(--message-teal); margin-right: .6rem; }
+
+/* ===== 強制淺色、加強對比（不受系統深色模式影響）===== */
+.slidev-layout.message { background-color: #ffffff; color: #1f2d2e; color-scheme: light; }
+.slidev-layout.message :where(p, li, td, div, span, small) { color: inherit; }
+.slidev-layout.message.message-title, .slidev-layout.message.message-dark { color: #ffffff; }
+
+/* 大區塊：加深底色＋邊框，不會和白底糊在一起 */
+.message .message-card { background: #dcebe8; border: 1.5px solid #a9c5c1; color: #1f4a4f; }
+.message .message-card.message-plain { color: #1f2d2e; }
+.message .message-link { background: #dcebe8; border: 1.5px solid #a9c5c1; border-left: 6px solid #e0a93b; color: #1f2d2e; }
+.slidev-layout.message:not(.message-dark) blockquote { background: #dcebe8; border: 1.5px solid #a9c5c1; border-left: 6px solid #e0a93b; color: #1f4a4f; }
+.slidev-layout.message td { color: #1f2d2e; background: #ffffff; }
+.slidev-layout.message tr:nth-child(even) td { background: #eef5f3; }
+
+/* 深色頁：字更亮、卡片更清楚 */
+.slidev-layout.message.message-dark p, .slidev-layout.message.message-dark .message-bar span { color: #d4e6e3; }
+.slidev-layout.message.message-dark .message-card { background: #3e6a6f; border: 1.5px solid #7fa8a3; color: #ffffff; }
+
+/* 引用框裡，原始檔案的換行會直接顯示成換行 */
+.slidev-layout.message blockquote p { white-space: pre-line; }
+
+/* 編號圓圈：更大、更深、白字加粗，邊緣加琥珀色圈 */
+.slidev-layout.message .message-card .message-num {
+  width: 2.8rem; height: 2.8rem; margin-bottom: 1rem;
+  background: #1f4a4f; border: 3px solid #e0a93b; border-radius: 50%;
+  color: #ffffff !important; font-size: 1.4rem; font-weight: 800; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.slidev-layout.message .message-steps li::before {
+  width: 2.6rem; height: 2.6rem; background: #1f4a4f; border: 3px solid #e0a93b;
+  color: #ffffff; font-size: 1.2rem; font-weight: 800;
+}
+.slidev-layout.message .message-steps li { padding-left: 3.6rem; }
